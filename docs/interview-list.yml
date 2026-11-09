@@ -1,0 +1,334 @@
+# Interview problem list: 100 easy, 100 medium, 100 hard.
+# Source: LeetCode problem set, read on 2026-10-31 from the user's own logged-in tab (read only).
+# Ranking: how often Google, Amazon, Meta, Apple and Netflix ask the problem (full weight),
+#   Microsoft (half weight), other tagged companies (quarter weight). Highest first inside each tier.
+# Free problems only. Database, shell, concurrency, interactive and "design" class problems are left out.
+# Only the number, title, tags and link are used. All statements, tests and solutions are original.
+# Link for each problem: https://leetcode.com/problems/<slug>/
+# `order` is the position inside the tier. Easier lesson keys come first.
+# `needs` holds lesson keys. Map a key to a lesson path with the table below.
+#   week10-* lessons do not exist yet. They are written in task P5 before the medium tier.
+#   `order` was ranked with the old keys. Re-rank by lesson level if the tier order matters.
+#   Easy problems need only weeks 0 to 9, except easy 81 to 100 with ll, tree or heap keys.
+#   Those wait for the week 10 lessons. Easy 80 (Longest Common Prefix) needs strings only.
+lessons:
+  ret: week0-functions/08-return-values
+  strs: week0-functions/04-strings
+  nums: week0-functions/06-numbers
+  loops: week2-loops/02-for-and-range
+  lists: week2-loops/03-lists
+  dicts: week2-loops/04-dictionaries
+  sets: week9-etcetera/01-sets
+  comp: week9-etcetera/06-comprehensions
+  cls: week8-objects/01-classes
+  twop: week10-algorithms/01-two-pointers
+  stack: week10-algorithms/02-stacks-and-queues
+  prefix: week10-algorithms/03-prefix-sums-and-intervals
+  heap: week10-algorithms/04-sorting-and-heaps
+  bs: week10-algorithms/05-binary-search
+  rec: week10-algorithms/06-recursion-and-backtracking
+  ll: week10-algorithms/07-linked-lists
+  tree: week10-algorithms/08-trees
+  graph: week10-algorithms/09-graphs
+  dp: week10-algorithms/10-dynamic-programming
+problems:
+- {n: 9, slug: palindrome-number, title: "Palindrome Number", tier: easy, order: 1, topic: math, companies: [Google, Amazon, Meta], needs: [ret, loops, nums]}
+- {n: 70, slug: climbing-stairs, title: "Climbing Stairs", tier: easy, order: 2, topic: math, companies: [Google, Amazon, Meta], needs: [ret, loops, nums]}
+- {n: 69, slug: sqrtx, title: "Sqrt(x)", tier: easy, order: 3, topic: math, companies: [Google, Amazon, Microsoft], needs: [ret, loops, nums]}
+- {n: 509, slug: fibonacci-number, title: "Fibonacci Number", tier: easy, order: 4, topic: math, companies: [Google, Apple, Meta], needs: [ret, loops, nums]}
+- {n: 231, slug: power-of-two, title: "Power of Two", tier: easy, order: 5, topic: math, companies: [Google, Amazon, Meta], needs: [ret, loops, nums]}
+- {n: 190, slug: reverse-bits, title: "Reverse Bits", tier: easy, order: 6, topic: divide-and-conquer, companies: [Meta, Apple, Google], needs: [ret, loops, nums]}
+- {n: 338, slug: counting-bits, title: "Counting Bits", tier: easy, order: 7, topic: dynamic-programming, companies: [Meta, Amazon, Google], needs: [ret, loops, lists, nums]}
+- {n: 326, slug: power-of-three, title: "Power of Three", tier: easy, order: 8, topic: math, companies: [Google, Amazon, Meta], needs: [ret, loops, nums]}
+- {n: 367, slug: valid-perfect-square, title: "Valid Perfect Square", tier: easy, order: 9, topic: math, companies: [Google, Meta, Amazon], needs: [ret, loops, nums]}
+- {n: 441, slug: arranging-coins, title: "Arranging Coins", tier: easy, order: 10, topic: math, companies: [Microsoft, Amazon, Meta], needs: [ret, loops, nums]}
+- {n: 121, slug: best-time-to-buy-and-sell-stock, title: "Best Time to Buy and Sell Stock", tier: easy, order: 11, topic: dynamic-programming, companies: [Amazon, Google, Meta], needs: [ret, loops, lists]}
+- {n: 20, slug: valid-parentheses, title: "Valid Parentheses", tier: easy, order: 12, topic: stack, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, strs]}
+- {n: 26, slug: remove-duplicates-from-sorted-array, title: "Remove Duplicates from Sorted Array", tier: easy, order: 13, topic: two-pointers, companies: [Google, Meta, Amazon], needs: [ret, loops, lists]}
+- {n: 88, slug: merge-sorted-array, title: "Merge Sorted Array", tier: easy, order: 14, topic: two-pointers, companies: [Google, Amazon, Apple], needs: [ret, loops, lists]}
+- {n: 680, slug: valid-palindrome-ii, title: "Valid Palindrome II", tier: easy, order: 15, topic: two-pointers, companies: [Meta, Amazon, Google], needs: [ret, loops, lists, strs]}
+- {n: 283, slug: move-zeroes, title: "Move Zeroes", tier: easy, order: 16, topic: two-pointers, companies: [Amazon, Google, Meta], needs: [ret, loops, lists]}
+- {n: 28, slug: find-the-index-of-the-first-occurrence-in-a-string, title: "Find the Index of the First Occurrence in a String", tier: easy, order: 17, topic: two-pointers, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs]}
+- {n: 125, slug: valid-palindrome, title: "Valid Palindrome", tier: easy, order: 18, topic: two-pointers, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, strs]}
+- {n: 35, slug: search-insert-position, title: "Search Insert Position", tier: easy, order: 19, topic: binary-search, companies: [Google, Amazon, Meta], needs: [ret, loops, lists]}
+- {n: 344, slug: reverse-string, title: "Reverse String", tier: easy, order: 20, topic: two-pointers, companies: [Google, Amazon, Apple], needs: [ret, loops, lists, strs]}
+- {n: 704, slug: binary-search, title: "Binary Search", tier: easy, order: 21, topic: binary-search, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists]}
+- {n: 27, slug: remove-element, title: "Remove Element", tier: easy, order: 22, topic: two-pointers, companies: [Google, Amazon, Meta], needs: [ret, loops, lists]}
+- {n: 485, slug: max-consecutive-ones, title: "Max Consecutive Ones", tier: easy, order: 23, topic: array, companies: [Google, Amazon, Meta], needs: [ret, loops, lists]}
+- {n: 66, slug: plus-one, title: "Plus One", tier: easy, order: 24, topic: math, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, nums]}
+- {n: 67, slug: add-binary, title: "Add Binary", tier: easy, order: 25, topic: math, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, nums]}
+- {n: 136, slug: single-number, title: "Single Number", tier: easy, order: 26, topic: bit-manipulation, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, nums]}
+- {n: 118, slug: pascals-triangle, title: "Pascal's Triangle", tier: easy, order: 27, topic: dynamic-programming, companies: [Amazon, Google, Meta], needs: [ret, loops, lists]}
+- {n: 977, slug: squares-of-a-sorted-array, title: "Squares of a Sorted Array", tier: easy, order: 28, topic: two-pointers, companies: [Google, Amazon, Meta], needs: [ret, loops, lists]}
+- {n: 1480, slug: running-sum-of-1d-array, title: "Running Sum of 1d Array", tier: easy, order: 29, topic: prefix-sum, companies: [Google, Amazon, Meta], needs: [ret, loops, lists]}
+- {n: 415, slug: add-strings, title: "Add Strings", tier: easy, order: 30, topic: math, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, strs, nums]}
+- {n: 605, slug: can-place-flowers, title: "Can Place Flowers", tier: easy, order: 31, topic: greedy, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists]}
+- {n: 643, slug: maximum-average-subarray-i, title: "Maximum Average Subarray I", tier: easy, order: 32, topic: sliding-window, companies: [Amazon, Google, Microsoft], needs: [ret, loops, lists]}
+- {n: 1047, slug: remove-all-adjacent-duplicates-in-string, title: "Remove All Adjacent Duplicates In String", tier: easy, order: 33, topic: stack, companies: [Meta, Google, Apple], needs: [ret, loops, lists, strs]}
+- {n: 733, slug: flood-fill, title: "Flood Fill", tier: easy, order: 34, topic: depth-first-search, companies: [Amazon, Google, Apple], needs: [ret, loops, lists]}
+- {n: 1539, slug: kth-missing-positive-number, title: "Kth Missing Positive Number", tier: easy, order: 35, topic: binary-search, companies: [Google, Amazon, Meta], needs: [ret, loops, lists]}
+- {n: 412, slug: fizz-buzz, title: "Fizz Buzz", tier: easy, order: 36, topic: math, companies: [Amazon, Meta, Apple], needs: [ret, loops, lists, strs, nums]}
+- {n: 58, slug: length-of-last-word, title: "Length of Last Word", tier: easy, order: 37, topic: string, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs]}
+- {n: 345, slug: reverse-vowels-of-a-string, title: "Reverse Vowels of a String", tier: easy, order: 38, topic: two-pointers, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs]}
+- {n: 1502, slug: can-make-arithmetic-progression-from-sequence, title: "Can Make Arithmetic Progression From Sequence", tier: easy, order: 39, topic: sorting, companies: [Google, Amazon, Meta], needs: [ret, loops, lists]}
+- {n: 1470, slug: shuffle-the-array, title: "Shuffle the Array", tier: easy, order: 40, topic: array, companies: [Google, Meta, Amazon], needs: [ret, loops, lists]}
+- {n: 796, slug: rotate-string, title: "Rotate String", tier: easy, order: 41, topic: string-matching, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs]}
+- {n: 463, slug: island-perimeter, title: "Island Perimeter", tier: easy, order: 42, topic: depth-first-search, companies: [Amazon, Meta, Google], needs: [ret, loops, lists]}
+- {n: 628, slug: maximum-product-of-three-numbers, title: "Maximum Product of Three Numbers", tier: easy, order: 43, topic: math, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, nums]}
+- {n: 1071, slug: greatest-common-divisor-of-strings, title: "Greatest Common Divisor of Strings", tier: easy, order: 44, topic: math, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, nums]}
+- {n: 541, slug: reverse-string-ii, title: "Reverse String II", tier: easy, order: 45, topic: two-pointers, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, strs]}
+- {n: 724, slug: find-pivot-index, title: "Find Pivot Index", tier: easy, order: 46, topic: prefix-sum, companies: [Google, Amazon, Apple], needs: [ret, loops, lists]}
+- {n: 1614, slug: maximum-nesting-depth-of-the-parentheses, title: "Maximum Nesting Depth of the Parentheses", tier: easy, order: 47, topic: stack, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, strs]}
+- {n: 1304, slug: find-n-unique-integers-sum-up-to-zero, title: "Find N Unique Integers Sum up to Zero", tier: easy, order: 48, topic: math, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, nums]}
+- {n: 459, slug: repeated-substring-pattern, title: "Repeated Substring Pattern", tier: easy, order: 49, topic: string-matching, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, strs]}
+- {n: 896, slug: monotonic-array, title: "Monotonic Array", tier: easy, order: 50, topic: array, companies: [Meta, Google, Amazon], needs: [ret, loops, lists]}
+- {n: 1021, slug: remove-outermost-parentheses, title: "Remove Outermost Parentheses", tier: easy, order: 51, topic: stack, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, strs]}
+- {n: 392, slug: is-subsequence, title: "Is Subsequence", tier: easy, order: 52, topic: two-pointers, companies: [Meta, Google, Amazon], needs: [ret, loops, lists, strs]}
+- {n: 1046, slug: last-stone-weight, title: "Last Stone Weight", tier: easy, order: 53, topic: heap-priority-queue, companies: [Amazon, Google, Apple], needs: [ret, loops, lists]}
+- {n: 1422, slug: maximum-score-after-splitting-a-string, title: "Maximum Score After Splitting a String", tier: easy, order: 54, topic: prefix-sum, companies: [Google, Meta], needs: [ret, loops, lists, strs]}
+- {n: 696, slug: count-binary-substrings, title: "Count Binary Substrings", tier: easy, order: 55, topic: two-pointers, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, strs]}
+- {n: 1295, slug: find-numbers-with-even-number-of-digits, title: "Find Numbers with Even Number of Digits", tier: easy, order: 56, topic: math, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, nums]}
+- {n: 1, slug: two-sum, title: "Two Sum", tier: easy, order: 57, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dicts]}
+- {n: 217, slug: contains-duplicate, title: "Contains Duplicate", tier: easy, order: 58, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dicts]}
+- {n: 169, slug: majority-element, title: "Majority Element", tier: easy, order: 59, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dicts]}
+- {n: 242, slug: valid-anagram, title: "Valid Anagram", tier: easy, order: 60, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, dicts]}
+- {n: 13, slug: roman-to-integer, title: "Roman to Integer", tier: easy, order: 61, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, dicts, nums]}
+- {n: 496, slug: next-greater-element-i, title: "Next Greater Element I", tier: easy, order: 62, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dicts]}
+- {n: 349, slug: intersection-of-two-arrays, title: "Intersection of Two Arrays", tier: easy, order: 63, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dicts]}
+- {n: 387, slug: first-unique-character-in-a-string, title: "First Unique Character in a String", tier: easy, order: 64, topic: hash-table, companies: [Amazon, Apple, Google], needs: [ret, loops, lists, strs, dicts]}
+- {n: 202, slug: happy-number, title: "Happy Number", tier: easy, order: 65, topic: hash-table, companies: [Google, Amazon, Apple], needs: [ret, loops, lists, dicts, nums]}
+- {n: 219, slug: contains-duplicate-ii, title: "Contains Duplicate II", tier: easy, order: 66, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dicts]}
+- {n: 205, slug: isomorphic-strings, title: "Isomorphic Strings", tier: easy, order: 67, topic: hash-table, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, strs, dicts]}
+- {n: 268, slug: missing-number, title: "Missing Number", tier: easy, order: 68, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dicts, nums]}
+- {n: 1275, slug: find-winner-on-a-tic-tac-toe-game, title: "Find Winner on a Tic Tac Toe Game", tier: easy, order: 69, topic: hash-table, companies: [Meta, Amazon, Apple], needs: [ret, loops, lists, dicts]}
+- {n: 383, slug: ransom-note, title: "Ransom Note", tier: easy, order: 70, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, dicts]}
+- {n: 933, slug: number-of-recent-calls, title: "Number of Recent Calls", tier: easy, order: 71, topic: design, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, dicts]}
+- {n: 303, slug: range-sum-query-immutable, title: "Range Sum Query - Immutable", tier: easy, order: 72, topic: design, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, dicts]}
+- {n: 645, slug: set-mismatch, title: "Set Mismatch", tier: easy, order: 73, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dicts, nums]}
+- {n: 448, slug: find-all-numbers-disappeared-in-an-array, title: "Find All Numbers Disappeared in an Array", tier: easy, order: 74, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dicts]}
+- {n: 594, slug: longest-harmonious-subsequence, title: "Longest Harmonious Subsequence", tier: easy, order: 75, topic: hash-table, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, dicts]}
+- {n: 1002, slug: find-common-characters, title: "Find Common Characters", tier: easy, order: 76, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, dicts]}
+- {n: 953, slug: verifying-an-alien-dictionary, title: "Verifying an Alien Dictionary", tier: easy, order: 77, topic: hash-table, companies: [Meta, Google, Amazon], needs: [ret, loops, lists, strs, dicts]}
+- {n: 389, slug: find-the-difference, title: "Find the Difference", tier: easy, order: 78, topic: hash-table, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, strs, dicts, nums]}
+- {n: 771, slug: jewels-and-stones, title: "Jewels and Stones", tier: easy, order: 79, topic: hash-table, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, strs, dicts]}
+- {n: 14, slug: longest-common-prefix, title: "Longest Common Prefix", tier: easy, order: 80, topic: trie, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, cls]}
+- {n: 21, slug: merge-two-sorted-lists, title: "Merge Two Sorted Lists", tier: easy, order: 81, topic: linked-list, companies: [Amazon, Google, Meta], needs: [ret, loops, cls, ll]}
+- {n: 206, slug: reverse-linked-list, title: "Reverse Linked List", tier: easy, order: 82, topic: linked-list, companies: [Google, Amazon, Meta], needs: [ret, loops, cls, ll]}
+- {n: 104, slug: maximum-depth-of-binary-tree, title: "Maximum Depth of Binary Tree", tier: easy, order: 83, topic: tree, companies: [Google, Meta, Amazon], needs: [ret, loops, cls, rec, tree]}
+- {n: 876, slug: middle-of-the-linked-list, title: "Middle of the Linked List", tier: easy, order: 84, topic: linked-list, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, cls, ll]}
+- {n: 110, slug: balanced-binary-tree, title: "Balanced Binary Tree", tier: easy, order: 85, topic: tree, companies: [Google, Amazon, Meta], needs: [ret, loops, cls, rec, tree]}
+- {n: 141, slug: linked-list-cycle, title: "Linked List Cycle", tier: easy, order: 86, topic: hash-table, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, dicts, cls, ll]}
+- {n: 100, slug: same-tree, title: "Same Tree", tier: easy, order: 87, topic: tree, companies: [Google, Amazon, Meta], needs: [ret, loops, cls, rec, tree]}
+- {n: 543, slug: diameter-of-binary-tree, title: "Diameter of Binary Tree", tier: easy, order: 88, topic: tree, companies: [Google, Meta, Amazon], needs: [ret, loops, cls, rec, tree]}
+- {n: 111, slug: minimum-depth-of-binary-tree, title: "Minimum Depth of Binary Tree", tier: easy, order: 89, topic: tree, companies: [Google, Meta, Amazon], needs: [ret, loops, cls, rec, tree]}
+- {n: 101, slug: symmetric-tree, title: "Symmetric Tree", tier: easy, order: 90, topic: tree, companies: [Google, Amazon, Meta], needs: [ret, loops, cls, rec, tree]}
+- {n: 226, slug: invert-binary-tree, title: "Invert Binary Tree", tier: easy, order: 91, topic: tree, companies: [Amazon, Google, Meta], needs: [ret, loops, cls, rec, tree]}
+- {n: 234, slug: palindrome-linked-list, title: "Palindrome Linked List", tier: easy, order: 92, topic: linked-list, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, cls, ll]}
+- {n: 94, slug: binary-tree-inorder-traversal, title: "Binary Tree Inorder Traversal", tier: easy, order: 93, topic: stack, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, cls, rec, tree]}
+- {n: 108, slug: convert-sorted-array-to-binary-search-tree, title: "Convert Sorted Array to Binary Search Tree", tier: easy, order: 94, topic: divide-and-conquer, companies: [Amazon, Apple, Google], needs: [ret, loops, lists, cls, rec, tree]}
+- {n: 703, slug: kth-largest-element-in-a-stream, title: "Kth Largest Element in a Stream", tier: easy, order: 95, topic: tree, companies: [Meta, Google, Amazon], needs: [ret, loops, dicts, cls, heap]}
+- {n: 938, slug: range-sum-of-bst, title: "Range Sum of BST", tier: easy, order: 96, topic: tree, companies: [Meta, Google, Amazon], needs: [ret, loops, cls, rec, tree]}
+- {n: 160, slug: intersection-of-two-linked-lists, title: "Intersection of Two Linked Lists", tier: easy, order: 97, topic: hash-table, companies: [Meta, Amazon, Apple], needs: [ret, loops, lists, dicts, cls, ll]}
+- {n: 112, slug: path-sum, title: "Path Sum", tier: easy, order: 98, topic: tree, companies: [Apple, Google, Amazon], needs: [ret, loops, cls, rec, tree]}
+- {n: 83, slug: remove-duplicates-from-sorted-list, title: "Remove Duplicates from Sorted List", tier: easy, order: 99, topic: linked-list, companies: [Google, Amazon, Meta], needs: [ret, loops, cls, ll]}
+- {n: 653, slug: two-sum-iv-input-is-a-bst, title: "Two Sum IV - Input is a BST", tier: easy, order: 100, topic: hash-table, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, dicts, cls, rec, tree]}
+- {n: 7, slug: reverse-integer, title: "Reverse Integer", tier: medium, order: 1, topic: math, companies: [Google, Amazon, Meta], needs: [ret, loops, nums]}
+- {n: 29, slug: divide-two-integers, title: "Divide Two Integers", tier: medium, order: 2, topic: math, companies: [Google, Amazon, Meta], needs: [ret, loops, nums]}
+- {n: 1492, slug: the-kth-factor-of-n, title: "The kth Factor of n", tier: medium, order: 3, topic: math, companies: [Amazon, Google, Microsoft], needs: [ret, loops, nums]}
+- {n: 11, slug: container-with-most-water, title: "Container With Most Water", tier: medium, order: 4, topic: two-pointers, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, twop]}
+- {n: 48, slug: rotate-image, title: "Rotate Image", tier: medium, order: 5, topic: math, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, nums]}
+- {n: 238, slug: product-of-array-except-self, title: "Product of Array Except Self", tier: medium, order: 6, topic: prefix-sum, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, prefix]}
+- {n: 54, slug: spiral-matrix, title: "Spiral Matrix", tier: medium, order: 7, topic: matrix, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists]}
+- {n: 31, slug: next-permutation, title: "Next Permutation", tier: medium, order: 8, topic: two-pointers, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, twop]}
+- {n: 503, slug: next-greater-element-ii, title: "Next Greater Element II", tier: medium, order: 9, topic: stack, companies: [Meta, Amazon, Google], needs: [ret, loops, lists, stack]}
+- {n: 189, slug: rotate-array, title: "Rotate Array", tier: medium, order: 10, topic: math, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, nums]}
+- {n: 1209, slug: remove-all-adjacent-duplicates-in-string-ii, title: "Remove All Adjacent Duplicates in String II", tier: medium, order: 11, topic: stack, companies: [Meta, Amazon, Bloomberg], needs: [ret, loops, lists, strs, stack]}
+- {n: 8, slug: string-to-integer-atoi, title: "String to Integer (atoi)", tier: medium, order: 12, topic: string, companies: [Google, Amazon, Netflix], needs: [ret, loops, lists, strs]}
+- {n: 739, slug: daily-temperatures, title: "Daily Temperatures", tier: medium, order: 13, topic: stack, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, stack]}
+- {n: 6, slug: zigzag-conversion, title: "Zigzag Conversion", tier: medium, order: 14, topic: string, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs]}
+- {n: 735, slug: asteroid-collision, title: "Asteroid Collision", tier: medium, order: 15, topic: stack, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, stack]}
+- {n: 498, slug: diagonal-traverse, title: "Diagonal Traverse", tier: medium, order: 16, topic: matrix, companies: [Meta, Google, Microsoft], needs: [ret, loops, lists]}
+- {n: 71, slug: simplify-path, title: "Simplify Path", tier: medium, order: 17, topic: stack, companies: [Meta, Google, Amazon], needs: [ret, loops, lists, strs, stack]}
+- {n: 443, slug: string-compression, title: "String Compression", tier: medium, order: 18, topic: two-pointers, companies: [Google, Amazon, Apple], needs: [ret, loops, lists, strs, twop]}
+- {n: 670, slug: maximum-swap, title: "Maximum Swap", tier: medium, order: 19, topic: math, companies: [Meta, Google, Amazon], needs: [ret, loops, lists, nums]}
+- {n: 134, slug: gas-station, title: "Gas Station", tier: medium, order: 20, topic: greedy, companies: [Amazon, Microsoft, Meta], needs: [ret, loops, lists, heap]}
+- {n: 402, slug: remove-k-digits, title: "Remove K Digits", tier: medium, order: 21, topic: stack, companies: [Amazon, Google, Microsoft], needs: [ret, loops, lists, strs, stack]}
+- {n: 636, slug: exclusive-time-of-functions, title: "Exclusive Time of Functions", tier: medium, order: 22, topic: stack, companies: [Meta, Google, Amazon], needs: [ret, loops, lists, stack]}
+- {n: 1423, slug: maximum-points-you-can-obtain-from-cards, title: "Maximum Points You Can Obtain from Cards", tier: medium, order: 23, topic: sliding-window, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, twop]}
+- {n: 150, slug: evaluate-reverse-polish-notation, title: "Evaluate Reverse Polish Notation", tier: medium, order: 24, topic: math, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, nums]}
+- {n: 3, slug: longest-substring-without-repeating-characters, title: "Longest Substring Without Repeating Characters", tier: medium, order: 25, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, dicts]}
+- {n: 560, slug: subarray-sum-equals-k, title: "Subarray Sum Equals K", tier: medium, order: 26, topic: hash-table, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, dicts]}
+- {n: 904, slug: fruit-into-baskets, title: "Fruit Into Baskets", tier: medium, order: 27, topic: hash-table, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, dicts]}
+- {n: 424, slug: longest-repeating-character-replacement, title: "Longest Repeating Character Replacement", tier: medium, order: 28, topic: hash-table, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, strs, dicts]}
+- {n: 155, slug: min-stack, title: "Min Stack", tier: medium, order: 29, topic: stack, companies: [Amazon, Google, Bloomberg], needs: [ret, loops, lists, dicts, stack]}
+- {n: 12, slug: integer-to-roman, title: "Integer to Roman", tier: medium, order: 30, topic: hash-table, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, strs, dicts, nums]}
+- {n: 73, slug: set-matrix-zeroes, title: "Set Matrix Zeroes", tier: medium, order: 31, topic: hash-table, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, dicts]}
+- {n: 36, slug: valid-sudoku, title: "Valid Sudoku", tier: medium, order: 32, topic: hash-table, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, dicts]}
+- {n: 146, slug: lru-cache, title: "LRU Cache", tier: medium, order: 33, topic: hash-table, companies: [Amazon, Google, Apple], needs: [ret, loops, dicts, cls]}
+- {n: 138, slug: copy-list-with-random-pointer, title: "Copy List with Random Pointer", tier: medium, order: 34, topic: hash-table, companies: [Amazon, Meta, Google], needs: [ret, loops, dicts, cls]}
+- {n: 61, slug: rotate-list, title: "Rotate List", tier: medium, order: 35, topic: linked-list, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, cls, ll]}
+- {n: 2, slug: add-two-numbers, title: "Add Two Numbers", tier: medium, order: 36, topic: linked-list, companies: [Google, Amazon, Meta], needs: [ret, loops, nums, cls, rec, ll]}
+- {n: 17, slug: letter-combinations-of-a-phone-number, title: "Letter Combinations of a Phone Number", tier: medium, order: 37, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, dicts, rec]}
+- {n: 78, slug: subsets, title: "Subsets", tier: medium, order: 38, topic: backtracking, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, nums, rec]}
+- {n: 46, slug: permutations, title: "Permutations", tier: medium, order: 39, topic: backtracking, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, rec]}
+- {n: 394, slug: decode-string, title: "Decode String", tier: medium, order: 40, topic: stack, companies: [Google, Amazon, Apple], needs: [ret, loops, lists, strs, stack, rec]}
+- {n: 143, slug: reorder-list, title: "Reorder List", tier: medium, order: 41, topic: linked-list, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, cls, rec, ll]}
+- {n: 50, slug: powx-n, title: "Pow(x, n)", tier: medium, order: 42, topic: math, companies: [Google, Meta, Amazon], needs: [ret, loops, nums, rec]}
+- {n: 39, slug: combination-sum, title: "Combination Sum", tier: medium, order: 43, topic: backtracking, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, rec]}
+- {n: 173, slug: binary-search-tree-iterator, title: "Binary Search Tree Iterator", tier: medium, order: 44, topic: stack, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, dicts, cls, stack, rec]}
+- {n: 15, slug: 3sum, title: "3Sum", tier: medium, order: 45, topic: two-pointers, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, twop, heap]}
+- {n: 49, slug: group-anagrams, title: "Group Anagrams", tier: medium, order: 46, topic: hash-table, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, strs, dicts, heap]}
+- {n: 56, slug: merge-intervals, title: "Merge Intervals", tier: medium, order: 47, topic: sorting, companies: [Amazon, Google, Apple], needs: [ret, loops, lists, heap]}
+- {n: 347, slug: top-k-frequent-elements, title: "Top K Frequent Elements", tier: medium, order: 48, topic: hash-table, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, dicts, heap]}
+- {n: 767, slug: reorganize-string, title: "Reorganize String", tier: medium, order: 49, topic: hash-table, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, strs, dicts, heap]}
+- {n: 215, slug: kth-largest-element-in-an-array, title: "Kth Largest Element in an Array", tier: medium, order: 50, topic: divide-and-conquer, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, heap]}
+- {n: 18, slug: 4sum, title: "4Sum", tier: medium, order: 51, topic: two-pointers, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, twop, heap]}
+- {n: 16, slug: 3sum-closest, title: "3Sum Closest", tier: medium, order: 52, topic: two-pointers, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, twop, heap]}
+- {n: 973, slug: k-closest-points-to-origin, title: "K Closest Points to Origin", tier: medium, order: 53, topic: math, companies: [Meta, Amazon, Google], needs: [ret, loops, lists, nums, heap]}
+- {n: 75, slug: sort-colors, title: "Sort Colors", tier: medium, order: 54, topic: two-pointers, companies: [Amazon, Google, Microsoft], needs: [ret, loops, lists, twop, heap]}
+- {n: 621, slug: task-scheduler, title: "Task Scheduler", tier: medium, order: 55, topic: hash-table, companies: [Amazon, Google, Apple], needs: [ret, loops, lists, dicts, heap]}
+- {n: 1094, slug: car-pooling, title: "Car Pooling", tier: medium, order: 56, topic: sorting, companies: [Meta, Google, Amazon], needs: [ret, loops, lists, heap]}
+- {n: 769, slug: max-chunks-to-make-sorted, title: "Max Chunks To Make Sorted", tier: medium, order: 57, topic: stack, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, stack, heap]}
+- {n: 875, slug: koko-eating-bananas, title: "Koko Eating Bananas", tier: medium, order: 58, topic: binary-search, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, bs]}
+- {n: 33, slug: search-in-rotated-sorted-array, title: "Search in Rotated Sorted Array", tier: medium, order: 59, topic: binary-search, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, bs]}
+- {n: 34, slug: find-first-and-last-position-of-element-in-sorted-array, title: "Find First and Last Position of Element in Sorted Array", tier: medium, order: 60, topic: binary-search, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, bs]}
+- {n: 1011, slug: capacity-to-ship-packages-within-d-days, title: "Capacity To Ship Packages Within D Days", tier: medium, order: 61, topic: binary-search, companies: [Amazon, Google, Apple], needs: [ret, loops, lists, bs]}
+- {n: 162, slug: find-peak-element, title: "Find Peak Element", tier: medium, order: 62, topic: binary-search, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, bs]}
+- {n: 167, slug: two-sum-ii-input-array-is-sorted, title: "Two Sum II - Input Array Is Sorted", tier: medium, order: 63, topic: two-pointers, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, twop, bs]}
+- {n: 1004, slug: max-consecutive-ones-iii, title: "Max Consecutive Ones III", tier: medium, order: 64, topic: binary-search, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, bs]}
+- {n: 540, slug: single-element-in-a-sorted-array, title: "Single Element in a Sorted Array", tier: medium, order: 65, topic: binary-search, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, bs]}
+- {n: 287, slug: find-the-duplicate-number, title: "Find the Duplicate Number", tier: medium, order: 66, topic: two-pointers, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, nums, twop, bs]}
+- {n: 713, slug: subarray-product-less-than-k, title: "Subarray Product Less Than K", tier: medium, order: 67, topic: binary-search, companies: [Google, Apple, Meta], needs: [ret, loops, lists, bs]}
+- {n: 981, slug: time-based-key-value-store, title: "Time Based Key-Value Store", tier: medium, order: 68, topic: hash-table, companies: [Apple, Meta, Amazon], needs: [ret, loops, lists, strs, dicts, bs]}
+- {n: 209, slug: minimum-size-subarray-sum, title: "Minimum Size Subarray Sum", tier: medium, order: 69, topic: binary-search, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, bs]}
+- {n: 81, slug: search-in-rotated-sorted-array-ii, title: "Search in Rotated Sorted Array II", tier: medium, order: 70, topic: binary-search, companies: [Meta, Google, Amazon], needs: [ret, loops, lists, bs]}
+- {n: 200, slug: number-of-islands, title: "Number of Islands", tier: medium, order: 71, topic: depth-first-search, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, cls, rec, graph]}
+- {n: 128, slug: longest-consecutive-sequence, title: "Longest Consecutive Sequence", tier: medium, order: 72, topic: hash-table, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, dicts, cls, graph]}
+- {n: 236, slug: lowest-common-ancestor-of-a-binary-tree, title: "Lowest Common Ancestor of a Binary Tree", tier: medium, order: 73, topic: tree, companies: [Meta, Amazon, Google], needs: [ret, loops, cls, rec, tree, graph]}
+- {n: 994, slug: rotting-oranges, title: "Rotting Oranges", tier: medium, order: 74, topic: breadth-first-search, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, graph]}
+- {n: 207, slug: course-schedule, title: "Course Schedule", tier: medium, order: 75, topic: depth-first-search, companies: [Amazon, Google, Apple], needs: [ret, loops, cls, rec, graph]}
+- {n: 199, slug: binary-tree-right-side-view, title: "Binary Tree Right Side View", tier: medium, order: 76, topic: tree, companies: [Meta, Amazon, Google], needs: [ret, loops, cls, rec, tree, graph]}
+- {n: 958, slug: check-completeness-of-a-binary-tree, title: "Check Completeness of a Binary Tree", tier: medium, order: 77, topic: tree, companies: [Meta, Amazon, Microsoft], needs: [ret, loops, cls, rec, tree, graph]}
+- {n: 210, slug: course-schedule-ii, title: "Course Schedule II", tier: medium, order: 78, topic: depth-first-search, companies: [Amazon, Google, Netflix], needs: [ret, loops, cls, rec, graph]}
+- {n: 1091, slug: shortest-path-in-binary-matrix, title: "Shortest Path in Binary Matrix", tier: medium, order: 79, topic: breadth-first-search, companies: [Meta, Google, Amazon], needs: [ret, loops, lists, graph]}
+- {n: 103, slug: binary-tree-zigzag-level-order-traversal, title: "Binary Tree Zigzag Level Order Traversal", tier: medium, order: 80, topic: tree, companies: [Meta, Amazon, Google], needs: [ret, loops, cls, rec, tree, graph]}
+- {n: 79, slug: word-search, title: "Word Search", tier: medium, order: 81, topic: backtracking, companies: [Amazon, Netflix, Google], needs: [ret, loops, lists, strs, rec, graph]}
+- {n: 133, slug: clone-graph, title: "Clone Graph", tier: medium, order: 82, topic: hash-table, companies: [Meta, Google, Amazon], needs: [ret, loops, dicts, cls, rec, graph]}
+- {n: 102, slug: binary-tree-level-order-traversal, title: "Binary Tree Level Order Traversal", tier: medium, order: 83, topic: tree, companies: [Google, Amazon, Microsoft], needs: [ret, loops, cls, rec, tree, graph]}
+- {n: 98, slug: validate-binary-search-tree, title: "Validate Binary Search Tree", tier: medium, order: 84, topic: tree, companies: [Google, Amazon, Meta], needs: [ret, loops, cls, rec, tree, graph]}
+- {n: 695, slug: max-area-of-island, title: "Max Area of Island", tier: medium, order: 85, topic: depth-first-search, companies: [Meta, Amazon, Google], needs: [ret, loops, lists, cls, rec, graph]}
+- {n: 863, slug: all-nodes-distance-k-in-binary-tree, title: "All Nodes Distance K in Binary Tree", tier: medium, order: 86, topic: hash-table, companies: [Amazon, Microsoft, Google], needs: [ret, loops, dicts, cls, rec, graph]}
+- {n: 5, slug: longest-palindromic-substring, title: "Longest Palindromic Substring", tier: medium, order: 87, topic: two-pointers, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, strs, twop, dp]}
+- {n: 53, slug: maximum-subarray, title: "Maximum Subarray", tier: medium, order: 88, topic: divide-and-conquer, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, heap, dp]}
+- {n: 198, slug: house-robber, title: "House Robber", tier: medium, order: 89, topic: dynamic-programming, companies: [Amazon, Google, Microsoft], needs: [ret, loops, lists, dp]}
+- {n: 22, slug: generate-parentheses, title: "Generate Parentheses", tier: medium, order: 90, topic: dynamic-programming, companies: [Google, Amazon, Apple], needs: [ret, loops, lists, strs, rec, dp]}
+- {n: 55, slug: jump-game, title: "Jump Game", tier: medium, order: 91, topic: dynamic-programming, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dp]}
+- {n: 322, slug: coin-change, title: "Coin Change", tier: medium, order: 92, topic: dynamic-programming, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, graph, dp]}
+- {n: 152, slug: maximum-product-subarray, title: "Maximum Product Subarray", tier: medium, order: 93, topic: dynamic-programming, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, dp]}
+- {n: 122, slug: best-time-to-buy-and-sell-stock-ii, title: "Best Time to Buy and Sell Stock II", tier: medium, order: 94, topic: dynamic-programming, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dp]}
+- {n: 647, slug: palindromic-substrings, title: "Palindromic Substrings", tier: medium, order: 95, topic: two-pointers, companies: [Meta, Amazon, Google], needs: [ret, loops, lists, strs, twop, dp]}
+- {n: 139, slug: word-break, title: "Word Break", tier: medium, order: 96, topic: hash-table, companies: [Amazon, Google, Netflix], needs: [ret, loops, lists, strs, dicts, cls, rec, graph, dp]}
+- {n: 416, slug: partition-equal-subset-sum, title: "Partition Equal Subset Sum", tier: medium, order: 97, topic: dynamic-programming, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dp]}
+- {n: 435, slug: non-overlapping-intervals, title: "Non-overlapping Intervals", tier: medium, order: 98, topic: dynamic-programming, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, heap, dp]}
+- {n: 45, slug: jump-game-ii, title: "Jump Game II", tier: medium, order: 99, topic: dynamic-programming, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, dp]}
+- {n: 1493, slug: longest-subarray-of-1s-after-deleting-one-element, title: "Longest Subarray of 1's After Deleting One Element", tier: medium, order: 100, topic: dynamic-programming, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, dp]}
+- {n: 84, slug: largest-rectangle-in-histogram, title: "Largest Rectangle in Histogram", tier: hard, order: 1, topic: stack, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, stack]}
+- {n: 68, slug: text-justification, title: "Text Justification", tier: hard, order: 2, topic: simulation, companies: [Uber, Google, Meta], needs: [ret, loops, lists, strs]}
+- {n: 135, slug: candy, title: "Candy", tier: hard, order: 3, topic: greedy, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, heap]}
+- {n: 65, slug: valid-number, title: "Valid Number", tier: hard, order: 4, topic: string, companies: [Meta, Google, Amazon], needs: [ret, loops, lists, strs]}
+- {n: 995, slug: minimum-number-of-k-consecutive-bit-flips, title: "Minimum Number of K Consecutive Bit Flips", tier: hard, order: 5, topic: bit-manipulation, companies: [Google, Meta], needs: [ret, loops, lists, nums, prefix]}
+- {n: 214, slug: shortest-palindrome, title: "Shortest Palindrome", tier: hard, order: 6, topic: rolling-hash, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, strs]}
+- {n: 321, slug: create-maximum-number, title: "Create Maximum Number", tier: hard, order: 7, topic: two-pointers, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, twop]}
+- {n: 564, slug: find-the-closest-palindrome, title: "Find the Closest Palindrome", tier: hard, order: 8, topic: math, companies: [Meta, Amazon, Uber], needs: [ret, loops, lists, strs, nums]}
+- {n: 1392, slug: longest-happy-prefix, title: "Longest Happy Prefix", tier: hard, order: 9, topic: rolling-hash, companies: [Google, Amazon, Apple], needs: [ret, loops, lists, strs]}
+- {n: 41, slug: first-missing-positive, title: "First Missing Positive", tier: hard, order: 10, topic: hash-table, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, dicts]}
+- {n: 76, slug: minimum-window-substring, title: "Minimum Window Substring", tier: hard, order: 11, topic: hash-table, companies: [Amazon, Google, Microsoft], needs: [ret, loops, lists, strs, dicts]}
+- {n: 30, slug: substring-with-concatenation-of-all-words, title: "Substring with Concatenation of All Words", tier: hard, order: 12, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, dicts]}
+- {n: 149, slug: max-points-on-a-line, title: "Max Points on a Line", tier: hard, order: 13, topic: hash-table, companies: [Meta, Google, Amazon], needs: [ret, loops, lists, dicts, nums]}
+- {n: 992, slug: subarrays-with-k-different-integers, title: "Subarrays with K Different Integers", tier: hard, order: 14, topic: hash-table, companies: [Amazon, Microsoft, Google], needs: [ret, loops, lists, dicts]}
+- {n: 895, slug: maximum-frequency-stack, title: "Maximum Frequency Stack", tier: hard, order: 15, topic: hash-table, companies: [Amazon, Google, Apple], needs: [ret, loops, lists, dicts]}
+- {n: 715, slug: range-module, title: "Range Module", tier: hard, order: 16, topic: design, companies: [Google, Amazon], needs: [ret, loops, dicts]}
+- {n: 460, slug: lfu-cache, title: "LFU Cache", tier: hard, order: 17, topic: hash-table, companies: [Amazon, Microsoft, Google], needs: [ret, loops, dicts, cls]}
+- {n: 432, slug: all-oone-data-structure, title: "All O`one Data Structure", tier: hard, order: 18, topic: hash-table, companies: [Amazon, Meta, Apple], needs: [ret, loops, dicts, cls]}
+- {n: 51, slug: n-queens, title: "N-Queens", tier: hard, order: 19, topic: backtracking, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, rec]}
+- {n: 224, slug: basic-calculator, title: "Basic Calculator", tier: hard, order: 20, topic: math, companies: [Meta, Amazon, Google], needs: [ret, loops, lists, strs, nums, rec]}
+- {n: 25, slug: reverse-nodes-in-k-group, title: "Reverse Nodes in k-Group", tier: hard, order: 21, topic: linked-list, companies: [Amazon, Google, Meta], needs: [ret, loops, cls, rec, ll]}
+- {n: 273, slug: integer-to-english-words, title: "Integer to English Words", tier: hard, order: 22, topic: math, companies: [Amazon, Microsoft, Meta], needs: [ret, loops, lists, strs, nums, rec]}
+- {n: 37, slug: sudoku-solver, title: "Sudoku Solver", tier: hard, order: 23, topic: hash-table, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dicts, rec]}
+- {n: 1106, slug: parsing-a-boolean-expression, title: "Parsing A Boolean Expression", tier: hard, order: 24, topic: stack, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, stack, rec]}
+- {n: 60, slug: permutation-sequence, title: "Permutation Sequence", tier: hard, order: 25, topic: math, companies: [Meta, Amazon, Google], needs: [ret, loops, nums, rec]}
+- {n: 980, slug: unique-paths-iii, title: "Unique Paths III", tier: hard, order: 26, topic: backtracking, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, nums, rec]}
+- {n: 679, slug: 24-game, title: "24 Game", tier: hard, order: 27, topic: math, companies: [Meta, Google, Microsoft], needs: [ret, loops, lists, nums, rec]}
+- {n: 52, slug: n-queens-ii, title: "N-Queens II", tier: hard, order: 28, topic: backtracking, companies: [Google, Amazon, Meta], needs: [ret, loops, rec]}
+- {n: 282, slug: expression-add-operators, title: "Expression Add Operators", tier: hard, order: 29, topic: math, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, strs, nums, rec]}
+- {n: 239, slug: sliding-window-maximum, title: "Sliding Window Maximum", tier: hard, order: 30, topic: queue, companies: [Amazon, Google, Microsoft], needs: [ret, loops, lists, stack, heap]}
+- {n: 23, slug: merge-k-sorted-lists, title: "Merge k Sorted Lists", tier: hard, order: 31, topic: linked-list, companies: [Amazon, Google, Apple], needs: [ret, loops, cls, heap, ll]}
+- {n: 295, slug: find-median-from-data-stream, title: "Find Median from Data Stream", tier: hard, order: 32, topic: two-pointers, companies: [Amazon, Google, Apple], needs: [ret, loops, lists, dicts, twop, heap]}
+- {n: 857, slug: minimum-cost-to-hire-k-workers, title: "Minimum Cost to Hire K Workers", tier: hard, order: 33, topic: greedy, companies: [Apple, Amazon, Google], needs: [ret, loops, lists, heap]}
+- {n: 632, slug: smallest-range-covering-elements-from-k-lists, title: "Smallest Range Covering Elements from K Lists", tier: hard, order: 34, topic: hash-table, companies: [Amazon, Google, Microsoft], needs: [ret, loops, lists, dicts, heap]}
+- {n: 480, slug: sliding-window-median, title: "Sliding Window Median", tier: hard, order: 35, topic: hash-table, companies: [Meta, Amazon, Google], needs: [ret, loops, lists, dicts, heap]}
+- {n: 218, slug: the-skyline-problem, title: "The Skyline Problem", tier: hard, order: 36, topic: divide-and-conquer, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, dicts, heap]}
+- {n: 761, slug: special-binary-string, title: "Special Binary String", tier: hard, order: 37, topic: divide-and-conquer, companies: [Google, Adobe, Amazon], needs: [ret, loops, lists, strs, heap]}
+- {n: 1665, slug: minimum-initial-energy-to-finish-tasks, title: "Minimum Initial Energy to Finish Tasks", tier: hard, order: 38, topic: greedy, companies: [Amazon, Google, Microsoft], needs: [ret, loops, lists, heap]}
+- {n: 220, slug: contains-duplicate-iii, title: "Contains Duplicate III", tier: hard, order: 39, topic: sliding-window, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, dicts, twop, heap]}
+- {n: 757, slug: set-intersection-size-at-least-two, title: "Set Intersection Size At Least Two", tier: hard, order: 40, topic: greedy, companies: [Amazon, Google, Microsoft], needs: [ret, loops, lists, heap]}
+- {n: 502, slug: ipo, title: "IPO", tier: hard, order: 41, topic: greedy, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, heap]}
+- {n: 768, slug: max-chunks-to-make-sorted-ii, title: "Max Chunks To Make Sorted II", tier: hard, order: 42, topic: stack, companies: [Amazon, Google, Bloomberg], needs: [ret, loops, lists, stack, heap]}
+- {n: 4, slug: median-of-two-sorted-arrays, title: "Median of Two Sorted Arrays", tier: hard, order: 43, topic: binary-search, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, heap, bs]}
+- {n: 493, slug: reverse-pairs, title: "Reverse Pairs", tier: hard, order: 44, topic: binary-search, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, dicts, heap, bs]}
+- {n: 1044, slug: longest-duplicate-substring, title: "Longest Duplicate Substring", tier: hard, order: 45, topic: binary-search, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, strs, bs]}
+- {n: 315, slug: count-of-smaller-numbers-after-self, title: "Count of Smaller Numbers After Self", tier: hard, order: 46, topic: binary-search, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, dicts, heap, bs]}
+- {n: 862, slug: shortest-subarray-with-sum-at-least-k, title: "Shortest Subarray with Sum at Least K", tier: hard, order: 47, topic: binary-search, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, heap, bs]}
+- {n: 154, slug: find-minimum-in-rotated-sorted-array-ii, title: "Find Minimum in Rotated Sorted Array II", tier: hard, order: 48, topic: binary-search, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, bs]}
+- {n: 327, slug: count-of-range-sum, title: "Count of Range Sum", tier: hard, order: 49, topic: binary-search, companies: [Amazon, Google], needs: [ret, loops, lists, dicts, heap, bs]}
+- {n: 127, slug: word-ladder, title: "Word Ladder", tier: hard, order: 50, topic: hash-table, companies: [Amazon, Apple, Meta], needs: [ret, loops, lists, strs, dicts, graph]}
+- {n: 297, slug: serialize-and-deserialize-binary-tree, title: "Serialize and Deserialize Binary Tree", tier: hard, order: 51, topic: tree, companies: [Apple, Amazon, Google], needs: [ret, loops, lists, strs, dicts, cls, rec, tree, graph]}
+- {n: 212, slug: word-search-ii, title: "Word Search II", tier: hard, order: 52, topic: backtracking, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, strs, cls, rec, graph]}
+- {n: 815, slug: bus-routes, title: "Bus Routes", tier: hard, order: 53, topic: hash-table, companies: [Amazon, Google, Microsoft], needs: [ret, loops, lists, dicts, graph]}
+- {n: 1293, slug: shortest-path-in-a-grid-with-obstacles-elimination, title: "Shortest Path in a Grid with Obstacles Elimination", tier: hard, order: 54, topic: breadth-first-search, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, graph]}
+- {n: 827, slug: making-a-large-island, title: "Making A Large Island", tier: hard, order: 55, topic: depth-first-search, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, cls, rec, graph]}
+- {n: 987, slug: vertical-order-traversal-of-a-binary-tree, title: "Vertical Order Traversal of a Binary Tree", tier: hard, order: 56, topic: hash-table, companies: [Amazon, Microsoft, Meta], needs: [ret, loops, lists, dicts, cls, heap, rec, graph]}
+- {n: 126, slug: word-ladder-ii, title: "Word Ladder II", tier: hard, order: 57, topic: hash-table, companies: [Amazon, Apple, Google], needs: [ret, loops, lists, strs, dicts, rec, graph]}
+- {n: 332, slug: reconstruct-itinerary, title: "Reconstruct Itinerary", tier: hard, order: 58, topic: depth-first-search, companies: [Google, Amazon, Apple], needs: [ret, loops, lists, strs, cls, heap, rec, graph]}
+- {n: 1028, slug: recover-a-tree-from-preorder-traversal, title: "Recover a Tree From Preorder Traversal", tier: hard, order: 59, topic: tree, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, cls, rec, tree, graph]}
+- {n: 778, slug: swim-in-rising-water, title: "Swim in Rising Water", tier: hard, order: 60, topic: binary-search, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, cls, heap, bs, rec, graph]}
+- {n: 407, slug: trapping-rain-water-ii, title: "Trapping Rain Water II", tier: hard, order: 61, topic: breadth-first-search, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, heap, graph]}
+- {n: 1192, slug: critical-connections-in-a-network, title: "Critical Connections in a Network", tier: hard, order: 62, topic: depth-first-search, companies: [Amazon, Google, Microsoft], needs: [ret, loops, cls, rec, graph]}
+- {n: 301, slug: remove-invalid-parentheses, title: "Remove Invalid Parentheses", tier: hard, order: 63, topic: backtracking, companies: [Meta, Amazon, Google], needs: [ret, loops, lists, strs, rec, graph]}
+- {n: 1368, slug: minimum-cost-to-make-at-least-one-valid-path-in-a-grid, title: "Minimum Cost to Make at Least One Valid Path in a Grid", tier: hard, order: 64, topic: breadth-first-search, companies: [Google, Amazon, Uber], needs: [ret, loops, lists, cls, heap, graph]}
+- {n: 440, slug: k-th-smallest-in-lexicographical-order, title: "K-th Smallest in Lexicographical Order", tier: hard, order: 65, topic: trie, companies: [Amazon, Google, Microsoft], needs: [ret, loops, cls, tree, graph]}
+- {n: 336, slug: palindrome-pairs, title: "Palindrome Pairs", tier: hard, order: 66, topic: hash-table, companies: [Amazon, Google, Microsoft], needs: [ret, loops, lists, strs, dicts, cls, graph]}
+- {n: 42, slug: trapping-rain-water, title: "Trapping Rain Water", tier: hard, order: 67, topic: two-pointers, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, twop, dp]}
+- {n: 410, slug: split-array-largest-sum, title: "Split Array Largest Sum", tier: hard, order: 68, topic: binary-search, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, bs, dp]}
+- {n: 124, slug: binary-tree-maximum-path-sum, title: "Binary Tree Maximum Path Sum", tier: hard, order: 69, topic: dynamic-programming, companies: [Amazon, Google, Meta], needs: [ret, loops, cls, rec, graph, dp]}
+- {n: 32, slug: longest-valid-parentheses, title: "Longest Valid Parentheses", tier: hard, order: 70, topic: dynamic-programming, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, strs, dp]}
+- {n: 10, slug: regular-expression-matching, title: "Regular Expression Matching", tier: hard, order: 71, topic: dynamic-programming, companies: [Amazon, Google, Apple], needs: [ret, loops, lists, strs, rec, dp]}
+- {n: 140, slug: word-break-ii, title: "Word Break II", tier: hard, order: 72, topic: hash-table, companies: [Meta, Amazon, Google], needs: [ret, loops, lists, strs, dicts, cls, rec, graph, dp]}
+- {n: 329, slug: longest-increasing-path-in-a-matrix, title: "Longest Increasing Path in a Matrix", tier: hard, order: 73, topic: dynamic-programming, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, cls, rec, graph, dp]}
+- {n: 689, slug: maximum-sum-of-3-non-overlapping-subarrays, title: "Maximum Sum of 3 Non-Overlapping Subarrays", tier: hard, order: 74, topic: dynamic-programming, companies: [Meta, Google, Amazon], needs: [ret, loops, lists, dp]}
+- {n: 1092, slug: shortest-common-supersequence, title: "Shortest Common Supersequence", tier: hard, order: 75, topic: dynamic-programming, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, strs, dp]}
+- {n: 44, slug: wildcard-matching, title: "Wildcard Matching", tier: hard, order: 76, topic: dynamic-programming, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, strs, rec, dp]}
+- {n: 115, slug: distinct-subsequences, title: "Distinct Subsequences", tier: hard, order: 77, topic: dynamic-programming, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, strs, dp]}
+- {n: 312, slug: burst-balloons, title: "Burst Balloons", tier: hard, order: 78, topic: dynamic-programming, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, dp]}
+- {n: 85, slug: maximal-rectangle, title: "Maximal Rectangle", tier: hard, order: 79, topic: dynamic-programming, companies: [Amazon, Meta, Google], needs: [ret, loops, lists, dp]}
+- {n: 968, slug: binary-tree-cameras, title: "Binary Tree Cameras", tier: hard, order: 80, topic: dynamic-programming, companies: [Amazon, Meta, Google], needs: [ret, loops, cls, rec, graph, dp]}
+- {n: 1526, slug: minimum-number-of-increments-on-subarrays-to-form-a-target-array, title: "Minimum Number of Increments on Subarrays to Form a Target Array", tier: hard, order: 81, topic: dynamic-programming, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, dp]}
+- {n: 132, slug: palindrome-partitioning-ii, title: "Palindrome Partitioning II", tier: hard, order: 82, topic: dynamic-programming, companies: [Meta, Google, Amazon], needs: [ret, loops, lists, strs, dp]}
+- {n: 354, slug: russian-doll-envelopes, title: "Russian Doll Envelopes", tier: hard, order: 83, topic: binary-search, companies: [Google, Amazon, Microsoft], needs: [ret, loops, lists, heap, bs, dp]}
+- {n: 741, slug: cherry-pickup, title: "Cherry Pickup", tier: hard, order: 84, topic: dynamic-programming, companies: [Google, Uber, Amazon], needs: [ret, loops, lists, dp]}
+- {n: 123, slug: best-time-to-buy-and-sell-stock-iii, title: "Best Time to Buy and Sell Stock III", tier: hard, order: 85, topic: dynamic-programming, companies: [Meta, Amazon, Apple], needs: [ret, loops, lists, dp]}
+- {n: 1326, slug: minimum-number-of-taps-to-open-to-water-a-garden, title: "Minimum Number of Taps to Open to Water a Garden", tier: hard, order: 86, topic: dynamic-programming, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, dp]}
+- {n: 1235, slug: maximum-profit-in-job-scheduling, title: "Maximum Profit in Job Scheduling", tier: hard, order: 87, topic: binary-search, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, heap, bs, dp]}
+- {n: 174, slug: dungeon-game, title: "Dungeon Game", tier: hard, order: 88, topic: dynamic-programming, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, dp]}
+- {n: 1406, slug: stone-game-iii, title: "Stone Game III", tier: hard, order: 89, topic: math, companies: [Google, Meta, Microsoft], needs: [ret, loops, lists, nums, dp]}
+- {n: 188, slug: best-time-to-buy-and-sell-stock-iv, title: "Best Time to Buy and Sell Stock IV", tier: hard, order: 90, topic: dynamic-programming, companies: [Apple, Amazon, Google], needs: [ret, loops, lists, dp]}
+- {n: 1373, slug: maximum-sum-bst-in-binary-tree, title: "Maximum Sum BST in Binary Tree", tier: hard, order: 91, topic: dynamic-programming, companies: [Amazon, Meta, Google], needs: [ret, loops, cls, rec, graph, dp]}
+- {n: 773, slug: sliding-puzzle, title: "Sliding Puzzle", tier: hard, order: 92, topic: dynamic-programming, companies: [Meta, Google, Microsoft], needs: [ret, loops, lists, rec, graph, dp]}
+- {n: 1639, slug: number-of-ways-to-form-a-target-string-given-a-dictionary, title: "Number of Ways to Form a Target String Given a Dictionary", tier: hard, order: 93, topic: dynamic-programming, companies: [Google, Amazon, Meta], needs: [ret, loops, lists, strs, dp]}
+- {n: 1411, slug: number-of-ways-to-paint-n-3-grid, title: "Number of Ways to Paint N × 3 Grid", tier: hard, order: 94, topic: dynamic-programming, companies: [Amazon, Meta, Google], needs: [ret, loops, dp]}
+- {n: 233, slug: number-of-digit-one, title: "Number of Digit One", tier: hard, order: 95, topic: math, companies: [Google, Amazon, Microsoft], needs: [ret, loops, nums, rec, dp]}
+- {n: 87, slug: scramble-string, title: "Scramble String", tier: hard, order: 96, topic: dynamic-programming, companies: [Google, Meta, Amazon], needs: [ret, loops, lists, strs, dp]}
+- {n: 847, slug: shortest-path-visiting-all-nodes, title: "Shortest Path Visiting All Nodes", tier: hard, order: 97, topic: dynamic-programming, companies: [Amazon, Google, Meta], needs: [ret, loops, nums, cls, graph, dp]}
+- {n: 1458, slug: max-dot-product-of-two-subsequences, title: "Max Dot Product of Two Subsequences", tier: hard, order: 98, topic: dynamic-programming, companies: [Amazon, Google, Meta], needs: [ret, loops, lists, dp]}
+- {n: 1478, slug: allocate-mailboxes, title: "Allocate Mailboxes", tier: hard, order: 99, topic: math, companies: [Amazon, Google, Bloomberg], needs: [ret, loops, lists, nums, heap, dp]}
+- {n: 871, slug: minimum-number-of-refueling-stops, title: "Minimum Number of Refueling Stops", tier: hard, order: 100, topic: dynamic-programming, companies: [Amazon, Google, Uber], needs: [ret, loops, lists, heap, dp]}

@@ -1,0 +1,306 @@
+slug: text-analyser
+title: Text analyser
+summary: Count the words and lines in a text, find its most common word, and pick out every email address with a regular expression.
+icon: file-text
+requires: [strings, for-loops, dictionaries, regex]
+afterWeek: 7
+milestones:
+  - id: text-analyser-1
+    title: Count the words
+    prompt: >-
+      Write word_count(text), which returns how many words the text has. A word is
+      anything between spaces or line breaks. Print the count for TEXT, for example:
+      Words: 31
+    starter: |
+      import re
+
+      TEXT = """Python reads the text one line at a time.
+      Each word in the text counts, and the lines count too.
+      Write to ada@example.com or help@example.org with questions, or ask ada@example.com again."""
+
+
+      def word_count(text):
+          ...
+    tests:
+      - stdout: "Words: 31"
+      - check: |-
+          assert word_count("one two  three") == 3, 'word_count("one two  three") should be 3'
+          assert word_count("") == 0, 'word_count("") should be 0'
+    hints:
+      - text.split() with no argument splits on any run of spaces and line breaks.
+    solution: |
+      import re
+
+      TEXT = """Python reads the text one line at a time.
+      Each word in the text counts, and the lines count too.
+      Write to ada@example.com or help@example.org with questions, or ask ada@example.com again."""
+
+
+      def word_count(text):
+          return len(text.split())
+
+
+      print(f"Words: {word_count(TEXT)}")
+  - id: text-analyser-2
+    title: Count the lines
+    prompt: >-
+      Write line_count(text), which returns how many lines the text has. Print it after
+      the words, for example: Lines: 3
+    starter: |
+      import re
+
+      TEXT = """Python reads the text one line at a time.
+      Each word in the text counts, and the lines count too.
+      Write to ada@example.com or help@example.org with questions, or ask ada@example.com again."""
+
+
+      def word_count(text):
+          return len(text.split())
+
+
+      print(f"Words: {word_count(TEXT)}")
+    tests:
+      - stdout: "Words: 31\nLines: 3"
+      - check: |-
+          assert line_count("a\nb") == 2, "line_count of two lines should be 2"
+          assert line_count("one line") == 1, 'line_count("one line") should be 1'
+    hints:
+      - text.splitlines() returns a list with one string per line.
+    solution: |
+      import re
+
+      TEXT = """Python reads the text one line at a time.
+      Each word in the text counts, and the lines count too.
+      Write to ada@example.com or help@example.org with questions, or ask ada@example.com again."""
+
+
+      def word_count(text):
+          return len(text.split())
+
+
+      def line_count(text):
+          return len(text.splitlines())
+
+
+      print(f"Words: {word_count(TEXT)}")
+      print(f"Lines: {line_count(TEXT)}")
+  - id: text-analyser-3
+    title: Find the most common word
+    prompt: >-
+      Write most_common(text). Make each word lowercase and strip . , ! and ? from its
+      ends, count the words in a dictionary, and return the word with the highest count.
+      If two words tie, return the one that comes first in the text. Print it, for
+      example: Most common: the
+    starter: |
+      import re
+
+      TEXT = """Python reads the text one line at a time.
+      Each word in the text counts, and the lines count too.
+      Write to ada@example.com or help@example.org with questions, or ask ada@example.com again."""
+
+
+      def word_count(text):
+          return len(text.split())
+
+
+      def line_count(text):
+          return len(text.splitlines())
+
+
+      print(f"Words: {word_count(TEXT)}")
+      print(f"Lines: {line_count(TEXT)}")
+    tests:
+      - stdout: "Words: 31\nLines: 3\nMost common: the"
+      - check: |-
+          got = most_common("Cat cat, dog.")
+          assert got == "cat", f'most_common("Cat cat, dog.") returned {got!r}'
+          got = most_common("b a b a c")
+          assert got == "b", f'most_common("b a b a c") returned {got!r}, and b comes first'
+    hints:
+      - word.strip(".,!?") removes those characters from both ends only.
+      - max(counts, key=counts.get) returns the first key with the biggest value.
+    solution: |
+      import re
+
+      TEXT = """Python reads the text one line at a time.
+      Each word in the text counts, and the lines count too.
+      Write to ada@example.com or help@example.org with questions, or ask ada@example.com again."""
+
+
+      def word_count(text):
+          return len(text.split())
+
+
+      def line_count(text):
+          return len(text.splitlines())
+
+
+      def most_common(text):
+          counts = {}
+          for word in text.split():
+              word = word.strip(".,!?").lower()
+              counts[word] = counts.get(word, 0) + 1
+          return max(counts, key=counts.get)
+
+
+      print(f"Words: {word_count(TEXT)}")
+      print(f"Lines: {line_count(TEXT)}")
+      print(f"Most common: {most_common(TEXT)}")
+  - id: text-analyser-4
+    title: Find the email addresses
+    prompt: >-
+      Write emails(text), which uses re.findall to find every email address and returns
+      each address once, in the order they first appear. Print the list for TEXT.
+    starter: |
+      import re
+
+      TEXT = """Python reads the text one line at a time.
+      Each word in the text counts, and the lines count too.
+      Write to ada@example.com or help@example.org with questions, or ask ada@example.com again."""
+
+
+      def word_count(text):
+          return len(text.split())
+
+
+      def line_count(text):
+          return len(text.splitlines())
+
+
+      def most_common(text):
+          counts = {}
+          for word in text.split():
+              word = word.strip(".,!?").lower()
+              counts[word] = counts.get(word, 0) + 1
+          return max(counts, key=counts.get)
+
+
+      print(f"Words: {word_count(TEXT)}")
+      print(f"Lines: {line_count(TEXT)}")
+      print(f"Most common: {most_common(TEXT)}")
+    tests:
+      - stdout: "Words: 31\nLines: 3\nMost common: the\n['ada@example.com', 'help@example.org']"
+      - check: |-
+          got = emails("x@a.io, y@b.co. x@a.io")
+          assert got == ["x@a.io", "y@b.co"], f"emails() returned {got!r}"
+          assert emails("no address here") == [], "emails() should return [] when there are none"
+    hints:
+      - An address is name characters, then @, then a domain with at least one dot, such as r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+".
+      - Keep a list and add an address only if it is not in the list yet.
+    solution: |
+      import re
+
+      TEXT = """Python reads the text one line at a time.
+      Each word in the text counts, and the lines count too.
+      Write to ada@example.com or help@example.org with questions, or ask ada@example.com again."""
+
+
+      def word_count(text):
+          return len(text.split())
+
+
+      def line_count(text):
+          return len(text.splitlines())
+
+
+      def most_common(text):
+          counts = {}
+          for word in text.split():
+              word = word.strip(".,!?").lower()
+              counts[word] = counts.get(word, 0) + 1
+          return max(counts, key=counts.get)
+
+
+      def emails(text):
+          found = []
+          for address in re.findall(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+", text):
+              if address not in found:
+                  found.append(address)
+          return found
+
+
+      print(f"Words: {word_count(TEXT)}")
+      print(f"Lines: {line_count(TEXT)}")
+      print(f"Most common: {most_common(TEXT)}")
+      print(emails(TEXT))
+  - id: text-analyser-5
+    title: Print a summary
+    prompt: >-
+      Replace the printed list with one line that joins the addresses with a comma and
+      a space, so the program ends with: Emails: ada@example.com, help@example.org
+    starter: |
+      import re
+
+      TEXT = """Python reads the text one line at a time.
+      Each word in the text counts, and the lines count too.
+      Write to ada@example.com or help@example.org with questions, or ask ada@example.com again."""
+
+
+      def word_count(text):
+          return len(text.split())
+
+
+      def line_count(text):
+          return len(text.splitlines())
+
+
+      def most_common(text):
+          counts = {}
+          for word in text.split():
+              word = word.strip(".,!?").lower()
+              counts[word] = counts.get(word, 0) + 1
+          return max(counts, key=counts.get)
+
+
+      def emails(text):
+          found = []
+          for address in re.findall(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+", text):
+              if address not in found:
+                  found.append(address)
+          return found
+
+
+      print(f"Words: {word_count(TEXT)}")
+      print(f"Lines: {line_count(TEXT)}")
+      print(f"Most common: {most_common(TEXT)}")
+      print(emails(TEXT))
+    tests:
+      - stdout: "Words: 31\nLines: 3\nMost common: the\nEmails: ada@example.com, help@example.org"
+    hints:
+      - '", ".join(items) puts ", " between the strings in a list.'
+    solution: |
+      import re
+
+      TEXT = """Python reads the text one line at a time.
+      Each word in the text counts, and the lines count too.
+      Write to ada@example.com or help@example.org with questions, or ask ada@example.com again."""
+
+
+      def word_count(text):
+          return len(text.split())
+
+
+      def line_count(text):
+          return len(text.splitlines())
+
+
+      def most_common(text):
+          counts = {}
+          for word in text.split():
+              word = word.strip(".,!?").lower()
+              counts[word] = counts.get(word, 0) + 1
+          return max(counts, key=counts.get)
+
+
+      def emails(text):
+          found = []
+          for address in re.findall(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+", text):
+              if address not in found:
+                  found.append(address)
+          return found
+
+
+      print(f"Words: {word_count(TEXT)}")
+      print(f"Lines: {line_count(TEXT)}")
+      print(f"Most common: {most_common(TEXT)}")
+      print(f"Emails: {', '.join(emails(TEXT))}")

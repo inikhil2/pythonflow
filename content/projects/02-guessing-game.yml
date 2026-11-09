@@ -1,0 +1,204 @@
+slug: guessing-game
+title: Number guessing game
+summary: Guess a secret number with "Too low" and "Too high" clues, count the guesses, then let random pick the secret.
+icon: dices
+requires: [functions, return-values, conditionals, while-loops, random]
+afterWeek: 4
+milestones:
+  - id: guessing-game-1
+    title: Compare a guess
+    prompt: >-
+      Write a function check_guess(secret, guess) that returns "Too low" when the guess
+      is smaller than the secret, "Too high" when it is bigger, and "Correct" when they
+      are equal. It returns the text and prints nothing.
+    starter: |
+      def check_guess(secret, guess):
+          ...
+    tests:
+      - check: assert check_guess(50, 10) == "Too low", 'check_guess(50, 10) should return "Too low"'
+      - check: assert check_guess(50, 90) == "Too high", 'check_guess(50, 90) should return "Too high"'
+      - check: assert check_guess(7, 7) == "Correct", 'check_guess(7, 7) should return "Correct"'
+    hints:
+      - Use if, elif and else to pick one of the three answers.
+      - return hands the text back to the caller. print would only show it.
+    solution: |
+      def check_guess(secret, guess):
+          if guess < secret:
+              return "Too low"
+          elif guess > secret:
+              return "Too high"
+          else:
+              return "Correct"
+  - id: guessing-game-2
+    title: Keep guessing
+    prompt: >-
+      Write a function play(secret). In a loop, ask for a guess with
+      int(input("Guess: ")), print what check_guess says, and stop when the guess is
+      correct. End the program with play(42).
+    starter: |
+      def check_guess(secret, guess):
+          if guess < secret:
+              return "Too low"
+          elif guess > secret:
+              return "Too high"
+          else:
+              return "Correct"
+
+
+      def play(secret):
+          ...
+
+
+      play(42)
+    tests:
+      - stdin: "10\n90\n42"
+        stdout: "Guess: Too low\nGuess: Too high\nGuess: Correct"
+      - stdin: "42"
+        stdout: "Guess: Correct"
+    hints:
+      - while True repeats forever, and break leaves the loop.
+      - Keep the answer in a variable, so you can print it and then compare it with "Correct".
+    solution: |
+      def check_guess(secret, guess):
+          if guess < secret:
+              return "Too low"
+          elif guess > secret:
+              return "Too high"
+          else:
+              return "Correct"
+
+
+      def play(secret):
+          while True:
+              answer = check_guess(secret, int(input("Guess: ")))
+              print(answer)
+              if answer == "Correct":
+                  break
+
+
+      play(42)
+  - id: guessing-game-3
+    title: Count the guesses
+    prompt: >-
+      Count every guess. After the correct one, print the count, for example:
+      Guesses: 3
+    starter: |
+      def check_guess(secret, guess):
+          if guess < secret:
+              return "Too low"
+          elif guess > secret:
+              return "Too high"
+          else:
+              return "Correct"
+
+
+      def play(secret):
+          while True:
+              answer = check_guess(secret, int(input("Guess: ")))
+              print(answer)
+              if answer == "Correct":
+                  break
+
+
+      play(42)
+    tests:
+      - stdin: "10\n90\n42"
+        stdout: "Guess: Too low\nGuess: Too high\nGuess: Correct\nGuesses: 3"
+      - stdin: "42"
+        stdout: "Guess: Correct\nGuesses: 1"
+    hints:
+      - Set a counter to 0 before the loop and add 1 each time you ask for a guess.
+      - Print the count after the loop ends.
+    solution: |
+      def check_guess(secret, guess):
+          if guess < secret:
+              return "Too low"
+          elif guess > secret:
+              return "Too high"
+          else:
+              return "Correct"
+
+
+      def play(secret):
+          guesses = 0
+          while True:
+              guesses += 1
+              answer = check_guess(secret, int(input("Guess: ")))
+              print(answer)
+              if answer == "Correct":
+                  break
+          print(f"Guesses: {guesses}")
+
+
+      play(42)
+  - id: guessing-game-4
+    title: Pick a random secret
+    prompt: >-
+      Import random and write pick_secret(level), which returns random.randint(1, level).
+      Ask for the level first with int(input("Level: ")), then end the program with
+      play(pick_secret(level)) instead of play(42).
+    starter: |
+      def check_guess(secret, guess):
+          if guess < secret:
+              return "Too low"
+          elif guess > secret:
+              return "Too high"
+          else:
+              return "Correct"
+
+
+      def play(secret):
+          guesses = 0
+          while True:
+              guesses += 1
+              answer = check_guess(secret, int(input("Guess: ")))
+              print(answer)
+              if answer == "Correct":
+                  break
+          print(f"Guesses: {guesses}")
+
+
+      play(42)
+    tests:
+      # Each case plays a level 3 game by guessing 1, 2 and 3, so any secret is found.
+      - stdin: "3\n1\n2\n3"
+        check: |-
+          random.seed(1)
+          assert pick_secret(10) == 3, "with random.seed(1), pick_secret(10) should return 3"
+      - stdin: "3\n1\n2\n3"
+        check: |-
+          numbers = {pick_secret(3) for _ in range(200)}
+          assert numbers == {1, 2, 3}, "pick_secret(3) should return 1, 2 or 3, and each of them sometimes"
+    hints:
+      - random.randint(1, level) includes both 1 and level.
+      - Read the level before you call play, and pass the secret into it.
+    solution: |
+      import random
+
+
+      def check_guess(secret, guess):
+          if guess < secret:
+              return "Too low"
+          elif guess > secret:
+              return "Too high"
+          else:
+              return "Correct"
+
+
+      def play(secret):
+          guesses = 0
+          while True:
+              guesses += 1
+              answer = check_guess(secret, int(input("Guess: ")))
+              print(answer)
+              if answer == "Correct":
+                  break
+          print(f"Guesses: {guesses}")
+
+
+      def pick_secret(level):
+          return random.randint(1, level)
+
+
+      level = int(input("Level: "))
+      play(pick_secret(level))

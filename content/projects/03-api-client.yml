@@ -1,0 +1,239 @@
+slug: api-client
+title: API client with mocked data
+summary: Read JSON from a pretend web API, pick out the fields you need, and print a tidy report.
+icon: cloud
+requires: [functions, dictionaries, exceptions, modules]
+afterWeek: 4
+note: Python here runs in your browser and cannot reach the internet, so get(path) returns saved JSON instead of calling a real API.
+milestones:
+  - id: api-client-1
+    title: Parse the JSON
+    prompt: >-
+      The function get(path) in the editor returns JSON text, as a web API would. Call
+      get("/users/1"), turn the text into a dictionary named user with json.loads, and
+      print the user's name.
+    starter: |
+      import json
+
+      # A pretend web API: get(path) returns JSON text for that path.
+      RESPONSES = {
+          "/users/1": '{"name": "Ada Lovelace", "email": "ada@example.com", "city": "London"}',
+          "/users/2": '{"name": "Alan Turing", "email": "alan@example.com"}',
+      }
+
+
+      def get(path):
+          return RESPONSES.get(path, '{"error": "Not found"}')
+
+
+      # Your code here
+    tests:
+      - stdout: "Ada Lovelace"
+      - check: assert user["email"] == "ada@example.com", "user should be the dictionary that json.loads returns"
+    hints:
+      - json.loads takes a string and returns a dictionary.
+      - Read a value with its key, for example user["name"].
+    solution: |
+      import json
+
+      # A pretend web API: get(path) returns JSON text for that path.
+      RESPONSES = {
+          "/users/1": '{"name": "Ada Lovelace", "email": "ada@example.com", "city": "London"}',
+          "/users/2": '{"name": "Alan Turing", "email": "alan@example.com"}',
+      }
+
+
+      def get(path):
+          return RESPONSES.get(path, '{"error": "Not found"}')
+
+
+      user = json.loads(get("/users/1"))
+      print(user["name"])
+  - id: api-client-2
+    title: Pick fields
+    prompt: >-
+      Write a function contact(user) that returns the name and the email in one string,
+      for example: Ada Lovelace <ada@example.com>. Print contact(user) instead of the
+      name.
+    starter: |
+      import json
+
+      # A pretend web API: get(path) returns JSON text for that path.
+      RESPONSES = {
+          "/users/1": '{"name": "Ada Lovelace", "email": "ada@example.com", "city": "London"}',
+          "/users/2": '{"name": "Alan Turing", "email": "alan@example.com"}',
+      }
+
+
+      def get(path):
+          return RESPONSES.get(path, '{"error": "Not found"}')
+
+
+      user = json.loads(get("/users/1"))
+      print(user["name"])
+    tests:
+      - stdout: "Ada Lovelace <ada@example.com>"
+      - check: |-
+          got = contact({"name": "Grace Hopper", "email": "grace@example.com"})
+          assert got == "Grace Hopper <grace@example.com>", f"contact() returned {got!r}"
+    hints:
+      - Inside an f-string with double quotes, use single quotes for the keys, for example {user['name']}.
+    solution: |
+      import json
+
+      # A pretend web API: get(path) returns JSON text for that path.
+      RESPONSES = {
+          "/users/1": '{"name": "Ada Lovelace", "email": "ada@example.com", "city": "London"}',
+          "/users/2": '{"name": "Alan Turing", "email": "alan@example.com"}',
+      }
+
+
+      def get(path):
+          return RESPONSES.get(path, '{"error": "Not found"}')
+
+
+      def contact(user):
+          return f"{user['name']} <{user['email']}>"
+
+
+      user = json.loads(get("/users/1"))
+      print(contact(user))
+  - id: api-client-3
+    title: Handle a missing key
+    prompt: >-
+      User 2 has no city, so user["city"] stops the program with KeyError. Write
+      city(user), which returns the city, or "Unknown" when the key is missing. Use try
+      and except KeyError. Then loop over "/users/1" and "/users/2" and print each
+      contact and city, for example: Ada Lovelace <ada@example.com>, London
+    starter: |
+      import json
+
+      # A pretend web API: get(path) returns JSON text for that path.
+      RESPONSES = {
+          "/users/1": '{"name": "Ada Lovelace", "email": "ada@example.com", "city": "London"}',
+          "/users/2": '{"name": "Alan Turing", "email": "alan@example.com"}',
+      }
+
+
+      def get(path):
+          return RESPONSES.get(path, '{"error": "Not found"}')
+
+
+      def contact(user):
+          return f"{user['name']} <{user['email']}>"
+
+
+      user = json.loads(get("/users/1"))
+      print(contact(user))
+    tests:
+      - stdout: "Ada Lovelace <ada@example.com>, London\nAlan Turing <alan@example.com>, Unknown"
+      - check: |-
+          assert city({"city": "Paris"}) == "Paris", 'city({"city": "Paris"}) should return "Paris"'
+          assert city({}) == "Unknown", 'city({}) should return "Unknown"'
+    hints:
+      - Put the line that can fail inside try, and the fallback inside except KeyError.
+      - A for loop over a list of paths runs the same code for each user.
+    solution: |
+      import json
+
+      # A pretend web API: get(path) returns JSON text for that path.
+      RESPONSES = {
+          "/users/1": '{"name": "Ada Lovelace", "email": "ada@example.com", "city": "London"}',
+          "/users/2": '{"name": "Alan Turing", "email": "alan@example.com"}',
+      }
+
+
+      def get(path):
+          return RESPONSES.get(path, '{"error": "Not found"}')
+
+
+      def contact(user):
+          return f"{user['name']} <{user['email']}>"
+
+
+      def city(user):
+          try:
+              return user["city"]
+          except KeyError:
+              return "Unknown"
+
+
+      for path in ["/users/1", "/users/2"]:
+          user = json.loads(get(path))
+          print(f"{contact(user)}, {city(user)}")
+  - id: api-client-4
+    title: Format a report
+    prompt: >-
+      Add "/users/3", which the API does not have: for that path get returns
+      {"error": "Not found"}. Print a report: the line Users report, one line per user,
+      the path and the error for a missing user (/users/3: Not found), and a last line
+      that counts the users found, for example: Found 2 of 3 users
+    starter: |
+      import json
+
+      # A pretend web API: get(path) returns JSON text for that path.
+      RESPONSES = {
+          "/users/1": '{"name": "Ada Lovelace", "email": "ada@example.com", "city": "London"}',
+          "/users/2": '{"name": "Alan Turing", "email": "alan@example.com"}',
+      }
+
+
+      def get(path):
+          return RESPONSES.get(path, '{"error": "Not found"}')
+
+
+      def contact(user):
+          return f"{user['name']} <{user['email']}>"
+
+
+      def city(user):
+          try:
+              return user["city"]
+          except KeyError:
+              return "Unknown"
+
+
+      for path in ["/users/1", "/users/2"]:
+          user = json.loads(get(path))
+          print(f"{contact(user)}, {city(user)}")
+    tests:
+      - stdout: "Users report\nAda Lovelace <ada@example.com>, London\nAlan Turing <alan@example.com>, Unknown\n/users/3: Not found\nFound 2 of 3 users"
+    hints:
+      - '"error" in user is True when the dictionary has that key.'
+      - Keep a counter that goes up only for the users you find.
+    solution: |
+      import json
+
+      # A pretend web API: get(path) returns JSON text for that path.
+      RESPONSES = {
+          "/users/1": '{"name": "Ada Lovelace", "email": "ada@example.com", "city": "London"}',
+          "/users/2": '{"name": "Alan Turing", "email": "alan@example.com"}',
+      }
+
+
+      def get(path):
+          return RESPONSES.get(path, '{"error": "Not found"}')
+
+
+      def contact(user):
+          return f"{user['name']} <{user['email']}>"
+
+
+      def city(user):
+          try:
+              return user["city"]
+          except KeyError:
+              return "Unknown"
+
+
+      paths = ["/users/1", "/users/2", "/users/3"]
+      found = 0
+      print("Users report")
+      for path in paths:
+          user = json.loads(get(path))
+          if "error" in user:
+              print(f"{path}: {user['error']}")
+          else:
+              found += 1
+              print(f"{contact(user)}, {city(user)}")
+      print(f"Found {found} of {len(paths)} users")

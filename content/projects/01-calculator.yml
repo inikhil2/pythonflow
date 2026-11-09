@@ -1,0 +1,132 @@
+slug: calculator
+title: Calculator
+summary: Read two numbers and an operator, then print the answer, without crashing on division by zero.
+icon: calculator
+requires: [input, numbers, conditionals]
+afterWeek: 1
+milestones:
+  - id: calculator-1
+    title: Read two numbers
+    prompt: >-
+      Ask for two numbers with input("First number: ") and input("Second number: "),
+      and turn each answer into a float. Then print "You entered", the first number,
+      "and", and the second number, for example: You entered 3.0 and 4.5
+    starter: |
+      # Ask for two numbers, then print them back.
+    tests:
+      - stdin: "3\n4.5"
+        stdout: "First number: Second number: You entered 3.0 and 4.5"
+      - stdin: "-2\n10"
+        stdout: "First number: Second number: You entered -2.0 and 10.0"
+    hints:
+      - input() always returns a string. float() turns "3" into 3.0.
+      - An f-string puts values into text, for example f"You entered {x} and {y}".
+    solution: |
+      x = float(input("First number: "))
+      y = float(input("Second number: "))
+      print(f"You entered {x} and {y}")
+  - id: calculator-2
+    title: Add them
+    prompt: >-
+      Your program so far is in the editor. Instead of repeating the numbers, print
+      the addition, for example: 3.0 + 4.5 = 7.5
+    starter: |
+      x = float(input("First number: "))
+      y = float(input("Second number: "))
+      print(f"You entered {x} and {y}")
+    tests:
+      - stdin: "3\n4.5"
+        stdout: "First number: Second number: 3.0 + 4.5 = 7.5"
+      - stdin: "-2\n10"
+        stdout: "First number: Second number: -2.0 + 10.0 = 8.0"
+    hints:
+      - You can do arithmetic inside the braces of an f-string, for example {x + y}.
+    solution: |
+      x = float(input("First number: "))
+      y = float(input("Second number: "))
+      print(f"{x} + {y} = {x + y}")
+  - id: calculator-3
+    title: Choose an operator
+    prompt: >-
+      After the two numbers, ask for an operator with input("Operator: "). Use if and
+      elif to handle +, -, * and /, and print the calculation the same way, for example:
+      3.0 * 4.5 = 13.5. For any other operator, print Unknown operator
+    starter: |
+      x = float(input("First number: "))
+      y = float(input("Second number: "))
+      print(f"{x} + {y} = {x + y}")
+    tests:
+      - stdin: "3\n4.5\n*"
+        stdout: "First number: Second number: Operator: 3.0 * 4.5 = 13.5"
+      - stdin: "10\n4\n/"
+        stdout: "First number: Second number: Operator: 10.0 / 4.0 = 2.5"
+      - stdin: "7\n2\n-"
+        stdout: "First number: Second number: Operator: 7.0 - 2.0 = 5.0"
+      - stdin: "3\n4.5\n+"
+        stdout: "First number: Second number: Operator: 3.0 + 4.5 = 7.5"
+      - stdin: "1\n2\n%"
+        stdout: "First number: Second number: Operator: Unknown operator"
+    hints:
+      - Compare the operator with ==, as in op == "+".
+      - The last branch, else, catches every operator you did not list.
+    solution: |
+      x = float(input("First number: "))
+      y = float(input("Second number: "))
+      op = input("Operator: ")
+      if op == "+":
+          print(f"{x} + {y} = {x + y}")
+      elif op == "-":
+          print(f"{x} - {y} = {x - y}")
+      elif op == "*":
+          print(f"{x} * {y} = {x * y}")
+      elif op == "/":
+          print(f"{x} / {y} = {x / y}")
+      else:
+          print("Unknown operator")
+  - id: calculator-4
+    title: Guard against division by zero
+    prompt: >-
+      Dividing by 0 stops the program with ZeroDivisionError. When the operator is /
+      and the second number is 0, print You cannot divide by zero. instead. Every
+      other sum works as before.
+    starter: |
+      x = float(input("First number: "))
+      y = float(input("Second number: "))
+      op = input("Operator: ")
+      if op == "+":
+          print(f"{x} + {y} = {x + y}")
+      elif op == "-":
+          print(f"{x} - {y} = {x - y}")
+      elif op == "*":
+          print(f"{x} * {y} = {x * y}")
+      elif op == "/":
+          print(f"{x} / {y} = {x / y}")
+      else:
+          print("Unknown operator")
+    tests:
+      - stdin: "5\n0\n/"
+        stdout: "First number: Second number: Operator: You cannot divide by zero."
+      - stdin: "10\n4\n/"
+        stdout: "First number: Second number: Operator: 10.0 / 4.0 = 2.5"
+      - stdin: "5\n0\n*"
+        stdout: "First number: Second number: Operator: 5.0 * 0.0 = 0.0"
+    hints:
+      - Check the second number inside the / branch, before you divide.
+      - 0.0 == 0 is True in Python, so y == 0 works for floats too.
+    solution: |
+      x = float(input("First number: "))
+      y = float(input("Second number: "))
+      op = input("Operator: ")
+      if op == "+":
+          print(f"{x} + {y} = {x + y}")
+      elif op == "-":
+          print(f"{x} - {y} = {x - y}")
+      elif op == "*":
+          print(f"{x} * {y} = {x * y}")
+      elif op == "/":
+          if y == 0:
+              print("You cannot divide by zero.")
+          else:
+              print(f"{x} / {y} = {x / y}")
+      else:
+          print("Unknown operator")

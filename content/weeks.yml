@@ -1,0 +1,35 @@
+# The ten CS50P weeks. Lessons live in content/week<N>-<topic>/ folders.
+weeks:
+  - week: 0
+    title: Functions and variables
+    summary: Write your first programs, store values in variables, and make your own functions.
+  - week: 1
+    title: Conditionals
+    summary: Make decisions with if, elif and else, and compare values.
+  - week: 2
+    title: Loops
+    summary: Repeat work with while and for, and walk through lists and dictionaries.
+  - week: 3
+    title: Exceptions
+    summary: Handle errors such as ValueError with try and except, so programs keep going.
+  - week: 4
+    title: Libraries
+    summary: Use modules from the standard library and from other people.
+  - week: 5
+    title: Unit tests
+    summary: Check your own code with assert and pytest.
+  - week: 6
+    title: File I/O
+    summary: Read and write files, including CSV files.
+  - week: 7
+    title: Regular expressions
+    summary: Match, check and clean up text with patterns.
+  - week: 8
+    title: Object-oriented programming
+    summary: Make your own types with classes, methods and properties.
+  - week: 9
+    title: Et cetera
+    summary: Sets, type hints, docstrings and other tools worth knowing.
+  - week: 10
+    title: Algorithms
+    summary: Solve common problems with patterns such as two pointers, stacks, prefix sums and intervals.

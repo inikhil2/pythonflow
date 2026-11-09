@@ -1,0 +1,320 @@
+slug: expense-tracker
+title: Expense tracker
+summary: Turn lines like "12.50,food" into totals per category, save them to a CSV file, and find where the money goes.
+icon: wallet
+requires: [for-loops, dictionaries, files, csv]
+afterWeek: 6
+note: Files you write here live in your browser's memory and are gone when you reload the page.
+milestones:
+  - id: expense-tracker-1
+    title: Parse a line
+    prompt: >-
+      Each line in LINES is an amount and a category with a comma between them. Write
+      parse(line), which returns a tuple of the amount as a float and the category
+      without spaces, for example parse("12.50,food") returns (12.5, "food"). Then
+      print the list of all parsed lines.
+    starter: |
+      import csv
+
+      LINES = ["12.50,food", "3.20,transport", "40.00,food", "9.99,books"]
+
+
+      def parse(line):
+          ...
+    tests:
+      - stdout: "[(12.5, 'food'), (3.2, 'transport'), (40.0, 'food'), (9.99, 'books')]"
+      - check: |-
+          got = parse("7.25, rent")
+          assert got == (7.25, "rent"), f'parse("7.25, rent") returned {got!r}'
+    hints:
+      - line.split(",") returns the two parts as a list of strings.
+      - .strip() removes spaces from both ends of a string.
+    solution: |
+      import csv
+
+      LINES = ["12.50,food", "3.20,transport", "40.00,food", "9.99,books"]
+
+
+      def parse(line):
+          amount, category = line.split(",")
+          return float(amount), category.strip()
+
+
+      expenses = [parse(line) for line in LINES]
+      print(expenses)
+  - id: expense-tracker-2
+    title: Add them up
+    prompt: >-
+      Write total(expenses), which returns the sum of the amounts. Instead of the list,
+      print the total with two decimals, for example: Total: 65.69
+    starter: |
+      import csv
+
+      LINES = ["12.50,food", "3.20,transport", "40.00,food", "9.99,books"]
+
+
+      def parse(line):
+          amount, category = line.split(",")
+          return float(amount), category.strip()
+
+
+      expenses = [parse(line) for line in LINES]
+      print(expenses)
+    tests:
+      - stdout: "Total: 65.69"
+      - check: |-
+          assert total([(1.5, "a"), (2.0, "b")]) == 3.5, "total() of 1.5 and 2.0 should be 3.5"
+          assert total([]) == 0, "total([]) should be 0"
+    hints:
+      - Loop over the tuples and add each amount, or pass a generator to sum().
+      - f"{x:.2f}" shows a number with two decimals.
+    solution: |
+      import csv
+
+      LINES = ["12.50,food", "3.20,transport", "40.00,food", "9.99,books"]
+
+
+      def parse(line):
+          amount, category = line.split(",")
+          return float(amount), category.strip()
+
+
+      def total(expenses):
+          return sum(amount for amount, category in expenses)
+
+
+      expenses = [parse(line) for line in LINES]
+      print(f"Total: {total(expenses):.2f}")
+  - id: expense-tracker-3
+    title: Totals by category
+    prompt: >-
+      Write by_category(expenses), which returns a dictionary from each category to the
+      sum of its amounts. After the total, print one line per category in the order
+      they first appear, for example: food: 52.50
+    starter: |
+      import csv
+
+      LINES = ["12.50,food", "3.20,transport", "40.00,food", "9.99,books"]
+
+
+      def parse(line):
+          amount, category = line.split(",")
+          return float(amount), category.strip()
+
+
+      def total(expenses):
+          return sum(amount for amount, category in expenses)
+
+
+      expenses = [parse(line) for line in LINES]
+      print(f"Total: {total(expenses):.2f}")
+    tests:
+      - stdout: "Total: 65.69\nfood: 52.50\ntransport: 3.20\nbooks: 9.99"
+      - check: |-
+          got = by_category([(1.0, "a"), (2.0, "b"), (3.0, "a")])
+          assert got == {"a": 4.0, "b": 2.0}, f"by_category() returned {got!r}"
+    hints:
+      - totals.get(category, 0) returns 0 for a category you have not seen yet.
+      - Dictionaries keep keys in the order you first add them.
+    solution: |
+      import csv
+
+      LINES = ["12.50,food", "3.20,transport", "40.00,food", "9.99,books"]
+
+
+      def parse(line):
+          amount, category = line.split(",")
+          return float(amount), category.strip()
+
+
+      def total(expenses):
+          return sum(amount for amount, category in expenses)
+
+
+      def by_category(expenses):
+          totals = {}
+          for amount, category in expenses:
+              totals[category] = totals.get(category, 0) + amount
+          return totals
+
+
+      expenses = [parse(line) for line in LINES]
+      print(f"Total: {total(expenses):.2f}")
+      for category, amount in by_category(expenses).items():
+          print(f"{category}: {amount:.2f}")
+  - id: expense-tracker-4
+    title: Save and load a CSV file
+    prompt: >-
+      Write save(expenses, path), which writes one row per expense with csv.writer, and
+      load(path), which reads the file back into a list of (float, str) tuples. Save the
+      parsed lines to expenses.csv, load them again, and print the same report from the
+      loaded list.
+    starter: |
+      import csv
+
+      LINES = ["12.50,food", "3.20,transport", "40.00,food", "9.99,books"]
+
+
+      def parse(line):
+          amount, category = line.split(",")
+          return float(amount), category.strip()
+
+
+      def total(expenses):
+          return sum(amount for amount, category in expenses)
+
+
+      def by_category(expenses):
+          totals = {}
+          for amount, category in expenses:
+              totals[category] = totals.get(category, 0) + amount
+          return totals
+
+
+      expenses = [parse(line) for line in LINES]
+      print(f"Total: {total(expenses):.2f}")
+      for category, amount in by_category(expenses).items():
+          print(f"{category}: {amount:.2f}")
+    tests:
+      - stdout: "Total: 65.69\nfood: 52.50\ntransport: 3.20\nbooks: 9.99"
+      - check: |-
+          save([(1.5, "tea"), (20.0, "rent")], "check.csv")
+          got = load("check.csv")
+          assert got == [(1.5, "tea"), (20.0, "rent")], f"load() returned {got!r} after save()"
+    hints:
+      - Open the file with open(path, "w", newline="") to write and open(path, newline="") to read.
+      - csv.reader gives each row as a list of strings, so turn the amount back into a float.
+    solution: |
+      import csv
+
+      LINES = ["12.50,food", "3.20,transport", "40.00,food", "9.99,books"]
+
+
+      def parse(line):
+          amount, category = line.split(",")
+          return float(amount), category.strip()
+
+
+      def total(expenses):
+          return sum(amount for amount, category in expenses)
+
+
+      def by_category(expenses):
+          totals = {}
+          for amount, category in expenses:
+              totals[category] = totals.get(category, 0) + amount
+          return totals
+
+
+      def save(expenses, path):
+          with open(path, "w", newline="") as file:
+              writer = csv.writer(file)
+              for amount, category in expenses:
+                  writer.writerow([amount, category])
+
+
+      def load(path):
+          with open(path, newline="") as file:
+              return [(float(amount), category) for amount, category in csv.reader(file)]
+
+
+      save([parse(line) for line in LINES], "expenses.csv")
+      expenses = load("expenses.csv")
+      print(f"Total: {total(expenses):.2f}")
+      for category, amount in by_category(expenses).items():
+          print(f"{category}: {amount:.2f}")
+  - id: expense-tracker-5
+    title: Find the top category
+    prompt: >-
+      Write top_category(totals), which returns the category with the largest total.
+      End the report with it, for example: Top category: food
+    starter: |
+      import csv
+
+      LINES = ["12.50,food", "3.20,transport", "40.00,food", "9.99,books"]
+
+
+      def parse(line):
+          amount, category = line.split(",")
+          return float(amount), category.strip()
+
+
+      def total(expenses):
+          return sum(amount for amount, category in expenses)
+
+
+      def by_category(expenses):
+          totals = {}
+          for amount, category in expenses:
+              totals[category] = totals.get(category, 0) + amount
+          return totals
+
+
+      def save(expenses, path):
+          with open(path, "w", newline="") as file:
+              writer = csv.writer(file)
+              for amount, category in expenses:
+                  writer.writerow([amount, category])
+
+
+      def load(path):
+          with open(path, newline="") as file:
+              return [(float(amount), category) for amount, category in csv.reader(file)]
+
+
+      save([parse(line) for line in LINES], "expenses.csv")
+      expenses = load("expenses.csv")
+      print(f"Total: {total(expenses):.2f}")
+      for category, amount in by_category(expenses).items():
+          print(f"{category}: {amount:.2f}")
+    tests:
+      - stdout: "Total: 65.69\nfood: 52.50\ntransport: 3.20\nbooks: 9.99\nTop category: food"
+      - check: |-
+          got = top_category({"a": 1.0, "b": 5.0, "c": 2.0})
+          assert got == "b", f"top_category() returned {got!r}"
+    hints:
+      - max(totals, key=totals.get) compares the keys by their values.
+    solution: |
+      import csv
+
+      LINES = ["12.50,food", "3.20,transport", "40.00,food", "9.99,books"]
+
+
+      def parse(line):
+          amount, category = line.split(",")
+          return float(amount), category.strip()
+
+
+      def total(expenses):
+          return sum(amount for amount, category in expenses)
+
+
+      def by_category(expenses):
+          totals = {}
+          for amount, category in expenses:
+              totals[category] = totals.get(category, 0) + amount
+          return totals
+
+
+      def save(expenses, path):
+          with open(path, "w", newline="") as file:
+              writer = csv.writer(file)
+              for amount, category in expenses:
+                  writer.writerow([amount, category])
+
+
+      def load(path):
+          with open(path, newline="") as file:
+              return [(float(amount), category) for amount, category in csv.reader(file)]
+
+
+      def top_category(totals):
+          return max(totals, key=totals.get)
+
+
+      save([parse(line) for line in LINES], "expenses.csv")
+      expenses = load("expenses.csv")
+      print(f"Total: {total(expenses):.2f}")
+      for category, amount in by_category(expenses).items():
+          print(f"{category}: {amount:.2f}")
+      print(f"Top category: {top_category(by_category(expenses))}")

@@ -1,0 +1,17 @@
+topic: exceptions
+title: Exceptions
+summary: An error raises an exception. try and except catch it; if nothing does, the program stops.
+week: 3
+code: |
+  def to_number(text):
+      try:
+          return int(text)
+      except ValueError:
+          print(text, "is not a number")
+          return 0
+
+
+  print(to_number("12"))
+  print(to_number("cat"))
+  values = [1, 2, 3]
+  print(values[3])

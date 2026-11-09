@@ -1,0 +1,11 @@
+topic: lists
+title: Lists
+summary: A list keeps values in order. Each value has an index, starting at 0.
+week: 2
+code: |
+  fruits = ["apple", "banana"]
+  fruits.append("cherry")
+  first = fruits[0]
+  fruits[1] = "blueberry"
+  for fruit in fruits:
+      print(fruit)

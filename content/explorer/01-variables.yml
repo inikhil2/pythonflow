@@ -1,0 +1,10 @@
+topic: variables
+title: Variables
+summary: A variable is a name for a value. Assigning again replaces the value.
+week: 0
+code: |
+  name = "Ada"
+  age = 36
+  age = age + 1
+  greeting = "Hello, " + name
+  print(greeting, age)

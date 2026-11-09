@@ -1,0 +1,158 @@
+/* PythonFlow tokens. Values come from DESIGN.md; components use only these variables. */
+:root {
+  color-scheme: light dark;
+
+  /* Colour: light-dark(light, dark) follows color-scheme on <html>. */
+  --bg: light-dark(#f5f7fa, #0e1622);
+  --surface: light-dark(#ffffff, #172131);
+  --surface-2: light-dark(#edf1f6, #212d40);
+  --text: light-dark(#141922, #e9eef6);
+  --text-2: light-dark(#566173, #93a3bd);
+  --accent: light-dark(#1462d6, #2b6fdc);
+  --accent-text: light-dark(#1462d6, #6aa8ff);
+  --accent-soft: light-dark(#e3edfc, #1c3152);
+  --on-accent: #ffffff;
+  --success: light-dark(#116a35, #3fcf7f);
+  --warning: light-dark(#8f4800, #ff9d57);
+  --error: light-dark(#c8281e, #ff6b61);
+  --line: light-dark(rgb(20 25 34 / 0.08), rgb(233 238 246 / 0.08));
+  --glass: light-dark(rgb(255 255 255 / 0.72), rgb(23 33 49 / 0.72));
+
+  /* Code workbench: dark in both themes. */
+  --code-bg: #121b27;
+  --code-bar: #18222f;
+  --code-line: #1a2534;
+  --code-text: #e4eaf2;
+  --code-muted: #8193ab;
+  --code-selection: #2a4470;
+  --code-ok: #4cd788;
+  --code-err: #ff7b72;
+  --syn-keyword: #ff7ab2;
+  --syn-string: #f2c46d;
+  --syn-number: #c3a6ff;
+  --syn-comment: #7d8ea6;
+  --syn-function: #6cb6ff;
+
+  /* Type */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --text-xs: 0.75rem;
+  --text-s: 0.8125rem;
+  --text-m: 0.9375rem;
+  --text-body: 1.0625rem;
+  --text-l: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-2xl: clamp(1.75rem, 3vw, 2.25rem);
+
+  /* Spacing */
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.5rem;
+  --s6: 2rem;
+  --s7: 3rem;
+
+  /* Radius */
+  --r-s: 6px;
+  --r-m: 10px;
+  --r-l: 14px;
+  --r-pill: 999px;
+
+  /* Shadow: light lifts with shadow, dark lifts with tone. */
+  --shadow-tint: light-dark(rgb(20 25 34 / 0.06), transparent);
+  --shadow-card: 0 1px 2px var(--shadow-tint), 0 8px 24px var(--shadow-tint);
+  --shadow-float: 0 8px 32px rgb(0 0 0 / 0.18);
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-fast: 100ms;
+  --dur: 200ms;
+  --dur-slow: 400ms;
+}
+
+/* The theme toggle sets data-theme on <html>; without it the system choice applies. */
+:root[data-theme='light'] { color-scheme: light; }
+:root[data-theme='dark'] { color-scheme: dark; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 var(--text-m)/1.5 var(--font);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--dur) var(--ease);
+}
+
+h1, h2, h3 { margin: 0; color: var(--text); }
+h1 { font-size: var(--text-xl); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+h2 { font-size: var(--text-l); font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
+h3 { font-size: var(--text-m); font-weight: 600; line-height: 1.3; }
+
+a { color: var(--accent-text); }
+code, pre, textarea { font-family: var(--font-mono); }
+
+button { font: inherit; cursor: pointer; }
+button:active:not(:disabled) { transform: scale(0.97); }
+button:disabled { cursor: default; opacity: 0.5; }
+
+.btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  border: 0;
+  border-radius: var(--r-m);
+  padding: var(--s2) var(--s4);
+  font-size: var(--text-m);
+  font-weight: 500;
+  transition: background-color var(--dur) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-secondary { background: var(--surface-2); color: var(--text); }
+
+.card {
+  background: var(--surface);
+  border-radius: var(--r-l);
+  box-shadow: var(--shadow-card);
+  padding: var(--s5);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+
+/* Progress bars (lesson header, Continue card, mastery): a thin accent bar on a 12% text-tint track. */
+progress {
+  appearance: none;
+  height: var(--s1);
+  border: 0;
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--text) 12%, transparent);
+  overflow: hidden;
+}
+progress::-webkit-progress-bar { background: color-mix(in srgb, var(--text) 12%, transparent); }
+progress::-webkit-progress-value { background: var(--accent); border-radius: var(--r-pill); }
+progress::-moz-progress-bar { background: var(--accent); border-radius: var(--r-pill); }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 1ms; --dur: 1ms; --dur-slow: 1ms; }
+  button:active:not(:disabled) { transform: none; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root { --glass: var(--surface); }
+}
+
+@media (prefers-contrast: more) {
+  :root { --line: currentColor; }
+  .card { border: 1px solid currentColor; }
+}

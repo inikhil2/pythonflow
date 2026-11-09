@@ -1,0 +1,13 @@
+topic: conditionals
+title: Conditionals
+summary: if, elif and else pick one branch. Python skips the others.
+week: 1
+code: |
+  score = 72
+  if score >= 90:
+      grade = "A"
+  elif score >= 70:
+      grade = "B"
+  else:
+      grade = "C"
+  print("Grade:", grade)

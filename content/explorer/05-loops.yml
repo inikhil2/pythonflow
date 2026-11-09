@@ -1,0 +1,14 @@
+topic: loops
+title: Loops
+summary: for repeats once for each item. while repeats as long as its condition is true.
+week: 2
+code: |
+  total = 0
+  for n in range(1, 5):
+      total = total + n
+  print("Total:", total)
+
+  count = 3
+  while count > 0:
+      print(count)
+      count = count - 1

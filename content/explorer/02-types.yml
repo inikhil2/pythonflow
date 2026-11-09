@@ -1,0 +1,12 @@
+topic: types
+title: Types and conversion
+summary: Every value has a type. int() and str() turn a value into another type.
+week: 0
+code: |
+  text = "42"
+  number = int(text)
+  half = number / 2
+  whole = number // 2
+  big = number > 40
+  label = "Answer: " + str(number)
+  print(label, half, whole, big)

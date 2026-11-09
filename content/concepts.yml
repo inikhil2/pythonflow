@@ -1,0 +1,170 @@
+# Concepts by CS50P week. A lesson lists the ids it teaches in its frontmatter `concepts`.
+# requires: concepts to know first. It is advice only; nothing is locked.
+# group: one of Python basics, Control flow, Data structures, Functions,
+# Errors and testing, Files and text, Objects, Going further.
+concepts:
+  - id: print
+    title: Printing output
+    week: 0
+    group: Python basics
+    requires: []
+  - id: strings
+    title: Strings
+    week: 0
+    group: Python basics
+    requires: [print]
+  - id: variables
+    title: Variables
+    week: 0
+    group: Python basics
+    requires: [print]
+  - id: input
+    title: Reading input
+    week: 0
+    group: Python basics
+    requires: [variables, strings]
+  - id: numbers
+    title: Integers and floats
+    week: 0
+    group: Python basics
+    requires: [variables]
+  - id: functions
+    title: Defining functions
+    week: 0
+    group: Functions
+    requires: [variables]
+  - id: return-values
+    title: Return values
+    week: 0
+    group: Functions
+    requires: [functions]
+  - id: comparisons
+    title: Comparisons
+    week: 1
+    group: Control flow
+    requires: [numbers]
+  - id: conditionals
+    title: if, elif and else
+    week: 1
+    group: Control flow
+    requires: [comparisons]
+  - id: boolean-logic
+    title: and, or and not
+    week: 1
+    group: Control flow
+    requires: [conditionals]
+  - id: match
+    title: match statements
+    week: 1
+    group: Control flow
+    requires: [conditionals]
+  - id: while-loops
+    title: while loops
+    week: 2
+    group: Control flow
+    requires: [conditionals]
+  - id: for-loops
+    title: for loops
+    week: 2
+    group: Control flow
+    requires: [while-loops]
+  - id: lists
+    title: Lists
+    week: 2
+    group: Data structures
+    requires: [for-loops]
+  - id: dictionaries
+    title: Dictionaries
+    week: 2
+    group: Data structures
+    requires: [lists]
+  - id: exceptions
+    title: try and except
+    week: 3
+    group: Errors and testing
+    requires: [conditionals]
+  - id: raise
+    title: Raising exceptions
+    week: 3
+    group: Errors and testing
+    requires: [exceptions]
+  - id: modules
+    title: Importing modules
+    week: 4
+    group: Going further
+    requires: [functions]
+  - id: random
+    title: The random module
+    week: 4
+    group: Going further
+    requires: [modules]
+  - id: command-line
+    title: Command-line arguments
+    week: 4
+    group: Going further
+    requires: [modules, lists]
+  - id: assert
+    title: assert
+    week: 5
+    group: Errors and testing
+    requires: [functions]
+  - id: pytest
+    title: Testing with pytest
+    week: 5
+    group: Errors and testing
+    requires: [assert]
+  - id: files
+    title: Reading and writing files
+    week: 6
+    group: Files and text
+    requires: [exceptions]
+  - id: csv
+    title: CSV files
+    week: 6
+    group: Files and text
+    requires: [files, dictionaries]
+  - id: regex
+    title: Regular expressions
+    week: 7
+    group: Files and text
+    requires: [strings]
+  - id: classes
+    title: Classes and objects
+    week: 8
+    group: Objects
+    requires: [functions, dictionaries]
+  - id: methods
+    title: Methods
+    week: 8
+    group: Objects
+    requires: [classes]
+  - id: properties
+    title: Properties
+    week: 8
+    group: Objects
+    requires: [methods]
+  - id: inheritance
+    title: Inheritance
+    week: 8
+    group: Objects
+    requires: [classes]
+  - id: sets
+    title: Sets
+    week: 9
+    group: Data structures
+    requires: [lists]
+  - id: comprehensions
+    title: Comprehensions
+    week: 9
+    group: Going further
+    requires: [for-loops, lists]
+  - id: type-hints
+    title: Type hints
+    week: 9
+    group: Going further
+    requires: [functions]
+  - id: docstrings
+    title: Docstrings
+    week: 9
+    group: Going further
+    requires: [functions]

@@ -1,0 +1,10 @@
+topic: dictionaries
+title: Dictionaries
+summary: A dictionary maps each key to a value. Assigning to a key adds or replaces it.
+week: 2
+code: |
+  ages = {"Ada": 36, "Alan": 41}
+  ages["Grace"] = 85
+  ages["Ada"] = 37
+  for name in ages:
+      print(name, ages[name])
